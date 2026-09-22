@@ -82,40 +82,42 @@ if (isset($_POST['register'])) {
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="Register.css">
 </head>
+<body>
 <main>
-    <h2>Create an Account</h2>
+    <section>
+        <h1>Create an Account</h1>
 
-    <form method="post">
-        <div>
-            <label>E-mail</label>
-            <input type="text" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-            <?php if (isset($errors['email'])) echo "<p>{$errors['email']}</p>"; ?>
-        </div>
-        <div>
-            <label>Username</label>
-            <input type="text" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>">
-            <?php if (isset($errors['username'])) echo "<p>{$errors['username']}</p>"; ?>
-        </div>
-        <div>
-            <label>Birthdate</label>
-            <input type="date" id="birthday" name="birthdate"
-                   value="<?= htmlspecialchars($_POST['birthdate'] ?? '') ?>">
-            <?php if (isset($errors['birthdate'])) echo "<p>{$errors['birthdate']}</p>"; ?>
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password">
-            <?php if (isset($errors['password'])) echo "<p>{$errors['password']}</p>"; ?>
-        </div>
-        <div>
-            <label>Confirm Password</label>
-            <input type="password" name="confirm_password">
-            <?php if (isset($errors['confirm_password'])) echo "<p>{$errors['confirm_password']}</p>"; ?>
-        </div>
-        <button type="submit" name="register">Register</button>
-    </form>
+        <form method="post">
+            <div>
+                <label>E-mail</label>
+                <input type="text" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                <?php if (isset($errors['email'])) echo "<p>{$errors['email']}</p>"; ?>
+            </div>
+            <div>
+                <label>Username</label>
+                <input type="text" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>">
+                <?php if (isset($errors['username'])) echo "<p>{$errors['username']}</p>"; ?>
+            </div>
+            <div>
+                <label>Birthdate</label>
+                <input type="date" id="birthday" name="birthdate"
+                       value="<?= htmlspecialchars($_POST['birthdate'] ?? '') ?>">
+                <?php if (isset($errors['birthdate'])) echo "<p>{$errors['birthdate']}</p>"; ?>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password">
+                <?php if (isset($errors['password'])) echo "<p>{$errors['password']}</p>"; ?>
+            </div>
+            <div>
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password">
+                <?php if (isset($errors['confirm_password'])) echo "<p>{$errors['confirm_password']}</p>"; ?>
+            </div>
+            <button type="submit" name="register">Register</button>
+        </form>
 
-    <p>Already have an account? <a href="login.php">Login here</a></p>
-
-    <?php require_once "../components/footer.php"; ?>
+        <p>Already have an account? <a href="login.php">Login here</a></p>
+    </section>
 </main>
+</body>

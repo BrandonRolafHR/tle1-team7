@@ -22,7 +22,7 @@
     --font-body: Arial, sans-serif;
     --color-dark: #4a4845; /* R: 75, G: 73, B: 70 */ /* (darkmode) */
     --color-light-blue: #c6d9f4; /* R: 199, G: 217, B: 240 */
-    --color-primary-blue: #5276B2; /* R: 83, G: 118, B: 178 */
+    --color-primary-blue: rgb(82, 118, 178); /* R: 83, G: 118, B: 178 */
     --color-cream: #F7EBE0; /* R: 247, G: 235, B: 223 */
     --color-off-white: #FBF7F4; /* R: 251, G: 241, B: 244 */
 }
