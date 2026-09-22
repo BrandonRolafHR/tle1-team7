@@ -35,6 +35,19 @@ body.dyslexia-mode {
     --font-body: 'opendyslexic', Arial, sans-serif;
 }
 
+h1, h2 {
+    font-family: var(--font-title);
+}
+
+
 body {
     font-family: var(--font-body);
+}
+
+main {
+    background-color: var(--color-cream);
+}
+
+form {
+    background-color: var(--color-cream);
 }
