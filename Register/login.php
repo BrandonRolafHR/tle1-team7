@@ -10,7 +10,6 @@ session_start();
 require_once '../included/connection.php';
 
 $errors = [];
-$redirect = $_GET['redirect'] ?? 'index.php';
 
 if (isset($_POST['login'])) {
     $username = trim($_POST['username'] ?? '');
@@ -34,7 +33,7 @@ if (isset($_POST['login'])) {
                         'name' => $user['username'],
                         'email' => $user['email'],
                 ];
-                header('Location: /tle1-team7/home.php' . $redirect);
+                header('Location: /tle1-team7/home.php');
                 exit;
             } else {
                 $errors['login'] = 'Invalid username or password';
@@ -62,6 +61,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 <main>
+    <h1>login</h1>
     <section>
         <form method="post">
             <input type="hidden" name="redirect" value="<?= htmlspecialchars($redirect) ?>">
@@ -74,16 +74,13 @@ if (isset($_POST['login'])) {
                 <input type="password" name="password">
             </div>
             <button type="submit" name="login">Login</button>
-            <?php if (isset($errors['login'])) echo "<p>{$errors['login']}</p>"; ?>
+            <?php if (isset($errors['login'])) echo "<p class='error'>{$errors['login']}</p>"; ?>
         </form>
     </section>
     <div>
-        <p>Dont have an account?</p>
-        <a href="register.php">Register</a>
+        <p>Dont have an account? <a href="register.php">Register here</a></p>
+
     </div>
-    <section>
-        <a href="logout.php">Logout</a>
-    </section>
 </main>
 
 </body>

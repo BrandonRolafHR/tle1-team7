@@ -56,3 +56,23 @@ h1 {
     text-align: center;
     margin-top: 5vh;
 }
+
+button:active {
+    background-color: var(--color-primary-blue);
+    color: white;
+}
+
+.error {
+    margin-top: 0.5vh;
+    font-style: normal;
+    font-size: .7rem;
+    color: red;
+}
+
+a {
+
+    font-style: italic;
+    font-size: .8rem;
+    text-decoration: none;
+    color: var(--color-primary-blue);
+}

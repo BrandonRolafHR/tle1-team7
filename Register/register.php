@@ -91,28 +91,28 @@ if (isset($_POST['register'])) {
             <div>
                 <label>E-mail</label>
                 <input type="text" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-                <?php if (isset($errors['email'])) echo "<p>{$errors['email']}</p>"; ?>
+                <?php if (isset($errors['email'])) echo "<p class='error'>{$errors['email']}</p>"; ?>
             </div>
             <div>
                 <label>Username</label>
                 <input type="text" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>">
-                <?php if (isset($errors['username'])) echo "<p>{$errors['username']}</p>"; ?>
+                <?php if (isset($errors['username'])) echo "<p class='error'>{$errors['username']}</p>"; ?>
             </div>
             <div>
                 <label>Birthdate</label>
                 <input type="date" id="birthday" name="birthdate"
                        value="<?= htmlspecialchars($_POST['birthdate'] ?? '') ?>">
-                <?php if (isset($errors['birthdate'])) echo "<p>{$errors['birthdate']}</p>"; ?>
+                <?php if (isset($errors['birthdate'])) echo "<p class='error'>{$errors['birthdate']}</p>"; ?>
             </div>
             <div>
                 <label>Password</label>
                 <input type="password" name="password">
-                <?php if (isset($errors['password'])) echo "<p>{$errors['password']}</p>"; ?>
+                <?php if (isset($errors['password'])) echo "<p class='error'>{$errors['password']}</p>"; ?>
             </div>
             <div>
                 <label>Confirm Password</label>
                 <input type="password" name="confirm_password">
-                <?php if (isset($errors['confirm_password'])) echo "<p>{$errors['confirm_password']}</p>"; ?>
+                <?php if (isset($errors['confirm_password'])) echo "<p class='error'>{$errors['confirm_password']}</p>"; ?>
             </div>
             <button type="submit" name="register">Register</button>
         </form>
