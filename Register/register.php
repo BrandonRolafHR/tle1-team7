@@ -50,14 +50,21 @@ if (isset($_POST['register'])) {
 
     //if all is good, insert user
     if (empty($errors)) {
-        $defaultAvatarId = 1; // the id of your default/placeholder avatar row
+        $defaultAvatarId = 1;
         $defaultBio = "Hey, I'm $username! I haven't written a bio yet.";
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         $stmt = mysqli_prepare($db, "INSERT INTO users (username, email, password, birthdate, bio, avatar_id) VALUES (?, ?, ?, ?, ?, ?)");
         mysqli_stmt_bind_param($stmt, "sssssi", $username, $email, $passwordHash, $birthdate, $defaultBio, $defaultAvatarId);
         mysqli_stmt_execute($stmt);
-        $_SESSION['user_id'] = mysqli_stmt_insert_id($stmt);
-        $_SESSION['username'] = $username;
+
+        $newUserId = mysqli_stmt_insert_id($stmt);
+
+        $_SESSION['loggedInUser'] = [
+                'id' => $newUserId,
+                'name' => $username,
+                'email' => $email,
+        ];
+
         header('Location: list.php');
         exit;
     }
@@ -73,6 +80,7 @@ if (isset($_POST['register'])) {
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="Register.css">
 </head>
 <main>
     <h2>Create an Account</h2>
