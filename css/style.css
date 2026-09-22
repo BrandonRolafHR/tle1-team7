@@ -4,18 +4,37 @@
 
 @font-face {
     font-family: 'opendyslexic';
-    src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf');
+    src: url('/fonts/OpenDyslexic-Regular.otf') format('opentype');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    font-family: 'Sono';
+    src: url('https://fonts.googleapis.com/css2?family=Sono:wght,MONO@200..800,1&display=swap');
     font-style: normal;
     font-weight: normal;
 }
 
 
+:root {
+    --font-title: 'Sono', monospace;
+    --font-body: Arial, sans-serif;
+    --color-dark: #4a4845; /* R: 75, G: 73, B: 70 */ /* (darkmode) */
+    --color-light-blue: #c6d9f4; /* R: 199, G: 217, B: 240 */
+    --color-primary-blue: #5276B2; /* R: 83, G: 118, B: 178 */
+    --color-cream: #F7EBE0; /* R: 247, G: 235, B: 223 */
+    --color-off-white: #FBF7F4; /* R: 251, G: 241, B: 244 */
+}
 
+:root {
+    --font-body: Arial, sans-serif;
+}
 
+body.dyslexia-mode {
+    --font-body: 'opendyslexic', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+}
