@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 21 sep 2026 om 09:38
+-- Gegenereerd op: 21 sep 2026 om 11:39
 -- Serverversie: 8.4.2
 -- PHP-versie: 8.4.15
 
@@ -41,9 +41,9 @@ CREATE TABLE `avatars` (
 
 CREATE TABLE `comments` (
   `id` bigint UNSIGNED NOT NULL,
-  `post_id` bigint NOT NULL,
+  `post_id` bigint UNSIGNED NOT NULL,
   `emoji` varchar(255) NOT NULL,
-  `user_id` bigint NOT NULL
+  `user_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -54,7 +54,6 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `events` (
   `id` bigint UNSIGNED NOT NULL,
-  `user_id` bigint NOT NULL,
   `date` datetime NOT NULL,
   `description` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL
@@ -68,7 +67,7 @@ CREATE TABLE `events` (
 
 CREATE TABLE `friends` (
   `id` bigint UNSIGNED NOT NULL,
-  `user_id` bigint NOT NULL
+  `user_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -83,7 +82,7 @@ CREATE TABLE `posts` (
   `text` varchar(255) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `comment` bigint NOT NULL,
-  `user_id` bigint NOT NULL
+  `user_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -99,8 +98,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `birthdate` date NOT NULL,
   `bio` varchar(255) NOT NULL,
-  `avatar_id` bigint NOT NULL,
-  `event_id` bigint NOT NULL,
+  `avatar_id` bigint UNSIGNED NOT NULL,
   `friend` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -112,8 +110,8 @@ CREATE TABLE `users` (
 
 CREATE TABLE `user_event` (
   `id` bigint UNSIGNED NOT NULL,
-  `user_id` bigint NOT NULL,
-  `event_id` bigint NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
+  `event_id` bigint UNSIGNED NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -131,7 +129,9 @@ ALTER TABLE `avatars`
 -- Indexen voor tabel `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `post_id` (`post_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexen voor tabel `events`
@@ -143,25 +143,30 @@ ALTER TABLE `events`
 -- Indexen voor tabel `friends`
 --
 ALTER TABLE `friends`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexen voor tabel `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `avatar_id` (`avatar_id`);
 
 --
 -- Indexen voor tabel `user_event`
 --
 ALTER TABLE `user_event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`,`event_id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
@@ -208,6 +213,36 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_event`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
+
+--
+-- Beperkingen voor tabel `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Beperkingen voor tabel `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`avatar_id`) REFERENCES `avatars` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Beperkingen voor tabel `user_event`
+--
+ALTER TABLE `user_event`
+  ADD CONSTRAINT `user_event_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `user_event_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
