@@ -65,7 +65,7 @@ if (isset($_POST['register'])) {
                 'email' => $email,
         ];
 
-        header('Location: list.php');
+        header('Location: /tle1-team7/home.php');
         exit;
     }
 }

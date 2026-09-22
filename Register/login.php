@@ -34,7 +34,7 @@ if (isset($_POST['login'])) {
                         'name' => $user['username'],
                         'email' => $user['email'],
                 ];
-                header("Location: " . $redirect);
+                header('Location: /tle1-team7/home.php' . $redirect);
                 exit;
             } else {
                 $errors['login'] = 'Invalid username or password';
