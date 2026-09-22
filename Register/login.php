@@ -21,14 +21,19 @@ if (isset($_POST['login'])) {
     if ($password === '') $errors['password'] = 'Password is required';
 
     if (empty($errors)) {
-        $usernameEsc = mysqli_real_escape_string($db, $username);
-        $result = mysqli_query($db, "SELECT id, password FROM users WHERE username = '$usernameEsc' LIMIT 1");
+        $stmt = mysqli_prepare($db, "SELECT id, username, email, password FROM users WHERE username = ? LIMIT 1");
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            if (password_verify($password, $row['password'])) {
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['username'] = $username;
+            $user = mysqli_fetch_assoc($result);
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['loggedInUser'] = [
+                        'id' => $user['id'],
+                        'name' => $user['username'],
+                        'email' => $user['email'],
+                ];
                 header("Location: " . $redirect);
                 exit;
             } else {
