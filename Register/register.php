@@ -80,7 +80,7 @@ if (isset($_POST['register'])) {
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="Register.css">
+    <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
 <main>
