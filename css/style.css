@@ -38,3 +38,11 @@ body.dyslexia-mode {
 body {
     font-family: var(--font-body);
 }
+
+main {
+    background-color: var(--color-cream);
+}
+
+form {
+    background-color: var(--color-cream);
+}
