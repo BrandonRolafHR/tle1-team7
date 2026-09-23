@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
+<?php $activePage = 'home'; ?>
 <body>
     <header>
 
@@ -29,7 +30,5 @@
         </div>
     </section>
 
-    <footer>
-
-    </footer>
+    <?php require_once "../components/footer.php" ?>
 </body>
