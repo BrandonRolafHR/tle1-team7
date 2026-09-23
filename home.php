@@ -52,16 +52,15 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <p class="post-location"><?= htmlspecialchars($post['location']) ?></p>
                     <?php } ?>
                 </div>
-              <?php if($post['comment_id'] !== NULL) { 
-                            
-                                $query = "SELECT emoji FROM comments WHERE id=$post[comment_id]";
-                                $result = mysqli_query($db, $query);
-                                $emoji = mysqli_fetch_assoc($result);
-                            ?>
-                            
-                            <div class="comment-container">
-                                <p><?= $emoji['emoji'] ?></p>
-                            </div>
+                <?php if ($post['comment_id'] !== NULL) {
+                    $query = "SELECT emoji FROM comments WHERE id=$post[comment_id]";
+                    $result = mysqli_query($db, $query);
+                    $emoji = mysqli_fetch_assoc($result);
+                    ?>
+                    <div class="comment-container">
+                        <p><?= htmlspecialchars($emoji['emoji']) ?></p>
+                    </div>
+                <?php } ?>
             </div>
         <?php } ?>
     </section>
