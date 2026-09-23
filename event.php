@@ -41,7 +41,7 @@ if (!$event) {
     <main>
     
     <p>Door: <?= htmlspecialchars($event['username']) ?></p>
-    <p>Datum: <?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))); ?></td>
+    <td>Datum: <?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))); ?></td>
     <p><?= $event['description'] ?></p>
     </main>
 

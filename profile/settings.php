@@ -41,7 +41,7 @@
                 <div>wijzig ✏️</div>
             </a>
 
-            <a href="/tle1-team7/Register/logout.php">
+            <a href="/Register/logout.php">
                 <div>uitloggen</div>
             </a>
 
