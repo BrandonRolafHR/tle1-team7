@@ -48,6 +48,9 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <?php } ?>
                     <h2><?= htmlspecialchars($post['title']) ?></h2>
                     <p><?= htmlspecialchars($post['text']) ?></p>
+                    <?php if (!empty($post['location'])) { ?>
+                        <p class="post-location"><?= htmlspecialchars($post['location']) ?></p>
+                    <?php } ?>
                 </div>
             </div>
         <?php } ?>
