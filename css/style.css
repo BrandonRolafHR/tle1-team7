@@ -214,3 +214,96 @@ main {
 form {
     background-color: var(--color-cream);
 }
+
+/* css voor profile en settings */
+.profile-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+.profile-header h1 {
+    color: #5276B2;
+}
+
+.settings-link {
+    height: 35px;
+    width: auto;
+}
+
+.settings-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    color: #5276B2;
+}
+.settings-header span {
+    font-size: 2rem;
+}
+.settings-header a {
+    text-decoration: none;
+    color: #5276B2;
+}
+
+.user-info p, h2{
+    padding-left: 10%;
+    color: #5276B2;
+    padding-top: 5px;
+}
+
+.user-info a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+.user-info div {
+    display: flex;
+    border: 2px solid #5276B2;
+    background:#5276B2;
+    padding: 5px 10px;
+    border-radius: 10px;
+    justify-content: center;
+    width: 330px;
+}
+
+    /*milestones css*/
+.milestone-path {
+    width: 100%;
+    height: 450px;
+    overflow-x: hidden;   /* geen horizontale scroll */
+    overflow-y: scroll;   /* verticale scrollen */
+    white-space: nowrap;  /* voorkomt dat de afbeelding wrapt */
+}
+
+.milestone-img {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.milestone-img:nth-child(2) {
+    margin-top: -75px; /* overlap */
+    z-index: 5;
+    position: relative;
+    width: 130px; /* pas de breedte aan naar wens */
+    padding-left: 230px;
+}
+
+.bg-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        background-image: url("../images/standard-header-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        width: auto;
+        height: 200px;
+        border-radius: 10px;
+        margin: 15px;
+
+    }
