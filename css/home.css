@@ -7,7 +7,7 @@ div.post-container {
 div.profile-container {
     display: flex;
     align-items: center;
-    padding: 5vw;
+    padding: 20px 5vw 0 5vw;
 }
 
 .pfp {
@@ -39,4 +39,10 @@ h2 {
 
 p {
     padding: 10px 0;
+}
+
+.comment-container {
+    margin: 0 5vw;
+    position: relative;
+    top: 16px;
 }
