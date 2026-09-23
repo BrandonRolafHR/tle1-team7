@@ -1,3 +1,20 @@
+<?php
+session_start(); // must be called before checking/using $_SESSION
+
+
+if (!isset($_SESSION['loggedInUser'])) {
+    header('Location: /Register/login.php');
+    exit;
+} else {
+    header('Location: /home.php');
+}
+
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>

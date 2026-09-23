@@ -1,4 +1,15 @@
 <?php
+
+
+session_start(); // must be called before checking/using $_SESSION
+
+
+if (!isset($_SESSION['loggedInUser'])) {
+    header('Location: /Register/login.php');
+    exit;
+}
+
+
 include 'included/connection.php';
 
 class Friends
