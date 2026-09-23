@@ -39,15 +39,16 @@ if (isset($_GET['continue'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-                
+    <link rel="stylesheet" href="css/event.css">
+     
     <title>delete-event</title>
 </head>
 <body>
     
 <div>
-    <h1>Are you sure you want to delete this event: <?= htmlentities($events['name']) ?>?</h1>
-    <a href="event-delete.php?id=<?= $id ?>&continue">Yes, delete!</a>
-    <a href="event.php?id=<?= $id ?>">No</a>
+    <h1>Are you sure you want to delete:<br> <?= htmlentities($events['name']) ?>?</h1>
+    <a class= "button" href="event-delete.php?id=<?= $id ?>&continue">Yes, delete!</a>
+    <a class= "button" href="event.php?id=<?= $id ?>">No</a>
 </div>
 </body>
 </html>
