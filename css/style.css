@@ -16,13 +16,54 @@
     font-weight: normal;
 }
 
+body {
+    background: #F7EBE0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background: #FBF7F4;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 40px;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+}
+
+footer img {
+    height: 40px;
+    width: auto;
+}
+/* footer div.active {
+    background: #F7EBE0;
+    width: 60px;
+    height: 60px;   
+    border-radius: 50%;
+} */
+
+footer .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+/* actieve pagina highlight */
+footer .item.active {
+    background: #F7EBE0; /* beige bubble */
+    /* box-shadow: 0 0 12px rgba(0,0,0,0.25); */
+}
 
 :root {
     --font-title: 'Sono', monospace;
     --font-body: Arial, sans-serif;
     --color-dark: #4a4845; /* R: 75, G: 73, B: 70 */ /* (darkmode) */
     --color-light-blue: #c6d9f4; /* R: 199, G: 217, B: 240 */
-    --color-primary-blue: #5276B2; /* R: 83, G: 118, B: 178 */
+    --color-primary-blue: rgb(82, 118, 178); /* R: 83, G: 118, B: 178 */
     --color-cream: #F7EBE0; /* R: 247, G: 235, B: 223 */
     --color-off-white: #FBF7F4; /* R: 251, G: 241, B: 244 */
 }
@@ -34,6 +75,11 @@
 body.dyslexia-mode {
     --font-body: 'opendyslexic', Arial, sans-serif;
 }
+
+h1, h2 {
+    font-family: var(--font-title);
+}
+
 
 body {
     font-family: var(--font-body);
@@ -161,3 +207,10 @@ color: #c6d9f4;
     max-width: 200px;
 }
 
+main {
+    background-color: var(--color-cream);
+}
+
+form {
+    background-color: var(--color-cream);
+}

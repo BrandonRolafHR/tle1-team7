@@ -1,0 +1,78 @@
+main {
+    margin: 4vw;
+}
+
+body {
+    background-color: var(--color-cream);
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2vh;
+    margin-top: 3vh;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2vh;
+}
+
+form div label {
+    align-self: flex-start;
+    margin-bottom: 1vh;
+    color: var(--color-primary-blue);
+    font-family: var(--font-title);
+}
+
+
+input {
+    width: 90vw;
+    height: 5vh;
+    border-radius: 10px;
+    border-color: var(--color-primary-blue);;
+}
+
+button {
+    width: 90vw;
+    height: 6vh;
+    background-color: var(--color-light-blue);
+    border-radius: 10px;
+    border: none;
+}
+
+p {
+    text-align: center;
+    font-style: italic;
+    font-size: .8rem;
+}
+
+h1 {
+    color: var(--color-primary-blue);;
+
+    text-align: center;
+    margin-top: 5vh;
+}
+
+button:active {
+    background-color: var(--color-primary-blue);
+    color: white;
+}
+
+.error {
+    margin-top: 0.5vh;
+    font-style: normal;
+    font-size: .7rem;
+    color: red;
+}
+
+a {
+
+    font-style: italic;
+    font-size: .8rem;
+    text-decoration: none;
+    color: var(--color-primary-blue);
+}

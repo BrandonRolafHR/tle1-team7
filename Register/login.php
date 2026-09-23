@@ -10,7 +10,6 @@ session_start();
 require_once '../included/connection.php';
 
 $errors = [];
-$redirect = $_GET['redirect'] ?? 'index.php';
 
 if (isset($_POST['login'])) {
     $username = trim($_POST['username'] ?? '');
@@ -21,15 +20,20 @@ if (isset($_POST['login'])) {
     if ($password === '') $errors['password'] = 'Password is required';
 
     if (empty($errors)) {
-        $usernameEsc = mysqli_real_escape_string($db, $username);
-        $result = mysqli_query($db, "SELECT id, password FROM users WHERE username = '$usernameEsc' LIMIT 1");
+        $stmt = mysqli_prepare($db, "SELECT id, username, email, password FROM users WHERE username = ? LIMIT 1");
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            if (password_verify($password, $row['password'])) {
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['username'] = $username;
-                header("Location: " . $redirect);
+            $user = mysqli_fetch_assoc($result);
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['loggedInUser'] = [
+                        'id' => $user['id'],
+                        'name' => $user['username'],
+                        'email' => $user['email'],
+                ];
+                header('Location: /tle1-team7/home.php');
                 exit;
             } else {
                 $errors['login'] = 'Invalid username or password';
@@ -43,9 +47,21 @@ if (isset($_POST['login'])) {
 
 ?>
 
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title></title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
 <body>
-
 <main>
+    <h1>login</h1>
     <section>
         <form method="post">
             <input type="hidden" name="redirect" value="<?= htmlspecialchars($redirect) ?>">
@@ -58,16 +74,13 @@ if (isset($_POST['login'])) {
                 <input type="password" name="password">
             </div>
             <button type="submit" name="login">Login</button>
-            <?php if (isset($errors['login'])) echo "<p>{$errors['login']}</p>"; ?>
+            <?php if (isset($errors['login'])) echo "<p class='error'>{$errors['login']}</p>"; ?>
         </form>
     </section>
     <div>
-        <p>Dont have an account?</p>
-        <a href="register.php">Register</a>
+        <p>Dont have an account? <a href="register.php">Register here</a></p>
+
     </div>
-    <section>
-        <a href="logout.php">Logout</a>
-    </section>
 </main>
 
 </body>
