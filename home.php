@@ -32,12 +32,10 @@
 
             <?php
                 foreach ($posts as $post) {
-                    print_r($post);
 
                     $query = "SELECT username, avatar_id FROM users WHERE id=$post[user_id]";
                     $result = mysqli_query($db, $query);
                     $user = mysqli_fetch_assoc($result);
-                    print_r($user);
 
                     ?>
                         <div class="post-container">
@@ -56,6 +54,19 @@
                                 <h2><?php echo $post['title']; ?></h2>
                                 <p><?= $post['text'] ?></p>
                             </div>
+
+                            <?php if($post['comment_id'] !== NULL) { 
+                            
+                                $query = "SELECT emoji FROM comments WHERE id=$post[comment_id]";
+                                $result = mysqli_query($db, $query);
+                                $emoji = mysqli_fetch_assoc($result);
+                            ?>
+                            
+                            <div class="comment-container">
+                                <p><?= $emoji['emoji'] ?></p>
+                            </div>
+                            <?php } ?>
+                        
                         </div>
 
                     <?php
