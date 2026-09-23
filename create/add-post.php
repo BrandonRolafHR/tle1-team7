@@ -39,23 +39,18 @@ if (isset($_POST['post'])) {
 
     // if all is good, insert post
     if (empty($errors)) {
-        $filename = null;
+        $imageData = null;
 
         if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-            $filename = uniqid('post_', true) . '.' . $ext;
-            $uploadPath = __DIR__ . '/../uploads/' . $filename; // adjust to your actual uploads folder
-
-            if (!move_uploaded_file($_FILES['image']['tmp_name'], $uploadPath)) {
-                $errors['image'] = 'Failed to save the uploaded image';
-            }
+            $imageData = file_get_contents($_FILES['image']['tmp_name']);
+            // skip move_uploaded_file entirely — storing the raw bytes in the DB instead
         }
 
         if (empty($errors)) {
             $userId = $_SESSION['loggedInUser']['id'];
 
             $stmt = mysqli_prepare($db, "INSERT INTO posts (user_id, title, image, text, location) VALUES (?, ?, ?, ?, ?)");
-            mysqli_stmt_bind_param($stmt, "issss", $userId, $title, $filename, $caption, $location);
+            mysqli_stmt_bind_param($stmt, "issss", $userId, $title, $imageData, $caption, $location);
             mysqli_stmt_execute($stmt);
 
             header('Location: /home.php');
