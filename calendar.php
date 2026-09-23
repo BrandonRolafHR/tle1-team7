@@ -124,9 +124,8 @@ mysqli_close($db);
 
                     <tr>
                         
-                        <td><?= htmlentities($allEvent['name']); ?></td>
+                        <td><a href="event.php?id=<?= htmlentities($allEvent['id']); ?>"><?= htmlentities($allEvent['name']); ?></a></td>
                         <td><?= htmlentities($allEvent['username']); ?></td>
-                        <!-- <td><?= htmlentities($allEvent['date']); ?></td> -->
                          <td><?= htmlentities(date('d-m-Y H:i', strtotime($allEvent['date']))); ?></td>
                     </tr>
                 <?php } ?>

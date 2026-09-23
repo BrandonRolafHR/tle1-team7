@@ -43,6 +43,8 @@ if (!$event) {
     <p>Door: <?= htmlspecialchars($event['username']) ?></p>
     <td>Datum: <?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))); ?></td>
     <p><?= $event['description'] ?></p>
+    <a href="event-delete.php?id=<?= htmlentities($event['id']) ?>">Delete</a>
+    <a href="event-edit.php?id=<?= htmlentities($event['id']) ?>">edit</a>
     </main>
 
 

@@ -40,7 +40,13 @@ if (isset($_POST['submit'])) {
 
         if ($result) {
             mysqli_close($db);
+            
             header('Location: calender.php');
+            // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        
+
+header("location:javascript://history.go(-1)");
+
             exit;
         }
     }
