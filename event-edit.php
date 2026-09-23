@@ -72,6 +72,8 @@ if (isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/event.css">
     <title>event - Edit</title>
 </head>
 <body>
@@ -84,7 +86,6 @@ if (isset($_POST['submit'])) {
 
 <div>
     <section>
-        <a href="create.php"> Add new author or genre</a>
         <form action="" method="POST">
 
             <div class="field is-horizontal">
@@ -98,61 +99,29 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
 
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label" for="name">Name</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <input class="input" id="name" type="text" name="name"
-                                   value="<?= htmlentities($events['name']) ?>"/>
-                        </div>
-                        <p class="help is-danger">
+            <div class="edit">
+                    <label for="name">Name:</label><br>
+                        <input id="name" type="text" name="name" value="<?= htmlentities($events['name']) ?>"/>
+                        <p>
                             <?= $errorMessages['name'] ?? '' ?>
-                        </p>
-                    </div>
-                </div>
+                        </p>               
             </div>
 
-            <div>
-                <div class="form-group">
-                        <label for="date">date and time:</label>
+            <div class="edit">
+                        <label for="date">Date and time:</label><br>
                         <input type="datetime-local" name="date" id="date"
                             value="<?= htmlentities($events['date']) ?>">
-                </div>
-                <p class="help is-danger">
+                <p >
                             <?= $errorMessages['date'] ?? '' ?>
                         </p>
             </div>
 
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label" for="description">description</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-
-                            <input class="input" id="description" type="text" name="description"
-                                   value="<?= htmlentities($events['description']) ?>"/>
-
-                        </div>
-
-
-                    </div>
-                </div>
+            <div class="edit">
+                    <label for="description">Description:</label><br>
+                        <input id="description" type="text" name="description" value="<?= htmlentities($events['description']) ?>"/>              
             </div>
 
-            
-
-
-            <div class="field is-horizontal">
-                <div class="field-label is-normal"></div>
-                <div class="field-body">
-                    <button class="button is-link is-fullwidth" type="submit" name="submit">Save</button>
-                </div>
-            </div>
+                <button class="button" type="submit" name="submit">Save</button>
         </form>
 
     </section>
