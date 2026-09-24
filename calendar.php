@@ -86,7 +86,7 @@ mysqli_close($db);
                 <td class="table dates">
                     <strong><?= $day ?></strong><br>
                 <?php foreach ($eventsByDate[$currentDate] as $event): ?>
-                    <a href="event.php?id=<?= $event['id'] ?>">
+                    <a href="/event.php?id=<?= $event['id'] ?>">
                     <?= $event['username'] ?><br>
                     <?= $event['name'] ?><br>
                     </a>
