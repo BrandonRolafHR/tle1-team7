@@ -56,6 +56,7 @@ mysqli_close($db);
     <title>calendar</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif"> 
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/calendar.css">
 </head>
 <body>
 <?php require_once "components/nav.php"; ?>
@@ -67,7 +68,7 @@ mysqli_close($db);
             <h2 class="agenda__title"><?= $monthName ?> <?= $year ?></h2>
             <a class="agenda__button" href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>">Volgende →</a>
         </div>
-
+    
         <table class="table">
             <tr>
                 <th>Ma</th><th>Di</th><th>Wo</th><th>Do</th>
@@ -85,7 +86,7 @@ mysqli_close($db);
                 <td class="table dates">
                     <strong><?= $day ?></strong><br>
                 <?php foreach ($eventsByDate[$currentDate] as $event): ?>
-                    <a href="event.php?id=<?= $event['id'] ?>">
+                    <a href="/event.php?id=<?= $event['id'] ?>">
                     <?= $event['username'] ?><br>
                     <?= $event['name'] ?><br>
                     </a>
@@ -99,20 +100,16 @@ mysqli_close($db);
                 <?php endfor; ?>
             </tr>
         </table>
-        <div>
+   
+        <div class="events">
             <h2>Alle events</h2>
-
-    
-            <table class="events">
+        <div class="events-table">
+            <table>
                 <thead>
                 <tr>
-                
                     <th>Event</th>
                     <th>Organizer</th>
                     <th>Date</th>
-                    
-                    
-
                 </tr>
                 </thead>
                 <tfoot>
@@ -124,14 +121,14 @@ mysqli_close($db);
 
                     <tr>
                         
-                        <td><?= htmlentities($allEvent['name']); ?></td>
+                        <td><a href="event.php?id=<?= htmlentities($allEvent['id']); ?>"><?= htmlentities($allEvent['name']); ?></a></td>
                         <td><?= htmlentities($allEvent['username']); ?></td>
-                        <!-- <td><?= htmlentities($allEvent['date']); ?></td> -->
                          <td><?= htmlentities(date('d-m-Y H:i', strtotime($allEvent['date']))); ?></td>
                     </tr>
                 <?php } ?>
                 </tbody>
             </table>
+            </div>
         </div>
 </main>
 <?php require_once "components/footer.php"; ?>

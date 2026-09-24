@@ -18,7 +18,7 @@ function init() {
         window.location.href = '/home.php';
     });
     calendarIcon.addEventListener('click', () => {
-        window.location.href = '/calender.php';
+        window.location.href = '/calendar.php';
     });
     addIcon.addEventListener('click', () => {
         window.location.href = '/create/create.php';

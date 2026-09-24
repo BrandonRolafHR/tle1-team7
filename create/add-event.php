@@ -10,7 +10,7 @@ $errors = [];
 
 if (isset($_POST['submit'])) {
     /** @var mysqli $db */
-    require_once "included/connection.php";
+    require_once "../included/connection.php";
 
     // Get form data
     $name = mysqli_escape_string($db, $_POST['name']);
@@ -40,7 +40,13 @@ if (isset($_POST['submit'])) {
 
         if ($result) {
             mysqli_close($db);
-            header('Location: calender.php');
+            
+            header('Location: /calendar.php');
+            // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        
+
+// header("location:javascript://history.go(-1)");
+
             exit;
         }
     }
@@ -52,7 +58,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momento</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/calendar.css">
 </head>
 <body>
    
