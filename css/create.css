@@ -108,3 +108,18 @@ main {
     flex-direction: column;
     align-self: flex-start;
 }
+
+.event {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    color: #5276B2;
+}
+.event span {
+    font-size: 2rem;
+}
+.event a {
+    text-decoration: none;
+    color: #5276B2;
+}

@@ -59,13 +59,11 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momento</title>
     <link rel="stylesheet" href="/css/style.css">
-     <link rel="stylesheet" href="/css/calendar.css">
+     <link rel="stylesheet" href="/css/create.css">
 </head>
 <?php $activePage = 'add'; ?>
 <body>
-   
-    
-         <header class="settings-header">
+         <header class="event">
             <a href="/index.php">
                 <span>↫</span>
             </a>
@@ -73,10 +71,10 @@ if (isset($_POST['submit'])) {
         </header>
 
         
-            <main class="edit-profile">
+            <main>
             <form action="" method="POST">
-                <div class="form-group">
-                <label for="name">event name:</label>
+                <div>
+                <label for="name">Event name</label>
                 <input type="text" name="name" id="name" >
                 </div>
 
@@ -84,13 +82,13 @@ if (isset($_POST['submit'])) {
                     <label for="date">date:</label>
                     <input type="date" name="date" id="date" >
                 </div> -->
-                <div class="form-group">
-                    <label for="date">date and time:</label>
+                <div>
+                    <label for="date">Date and time</label>
                     <input type="datetime-local" name="date" id="date">
                 </div>
 
-                <div class="form-group">
-                    <label for="description">description:</label>
+                <div>
+                    <label for="description">Description</label>
                     <input type="description" name="description" id="description" >
                 </div>
 
@@ -98,8 +96,9 @@ if (isset($_POST['submit'])) {
 
                 
 
-                <button type="submit" name="submit">opslaan</button>
+                <button type="submit" name="submit">Save</button>
             </form>
         </main>
+       <?php require_once "../components/footer.php"; ?>
     </body>
 </html>
