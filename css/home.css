@@ -3,6 +3,10 @@ header {
     color: rgb(82, 118, 178);
 }
 
+options {
+    display: flex;
+}
+
 div.post-container {
     display: none;
     flex-direction: column;
@@ -79,15 +83,57 @@ p {
 }
 
 .close-button {
-    /* display: flex; */
-    /* flex-direction: row-reverse; */
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 20; /* above the menu (menu popup is 10) */
 }
-
 .close-post {
     background-color: #FBF7F4;
     border: none;
     font-size: 20px;
+}
+
+
+.post-menu {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content; /* only as wide as the dots, so it can't cover the X */
+}
+
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 10px;
+}
+
+
+.menu-popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;      /* was right: 0 */
+    right: auto;
+    background: white;
+    border: 2px solid var(--color-primary-blue);
+    border-radius: 12px;
+    padding: 6px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.menu-delete {
+    display: block;
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    padding: 8px 16px;
+    white-space: nowrap;
+}
+
+main {
+    padding-bottom: 60px; /* a bit taller than your nav bar */
 }
