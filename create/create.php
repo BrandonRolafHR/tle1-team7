@@ -20,6 +20,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="../css/create.css">
 </head>
+<?php $activePage = 'add'; ?>
 <body>
 <main>
 

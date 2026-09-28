@@ -134,3 +134,4 @@ mysqli_close($db);
 </main>
 <?php require_once "components/footer.php"; ?>
 </body>
+</html>

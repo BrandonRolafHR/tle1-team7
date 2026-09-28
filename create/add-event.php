@@ -61,10 +61,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="/css/style.css">
      <link rel="stylesheet" href="/css/create.css">
 </head>
+<?php $activePage = 'add'; ?>
 <body>
-   
-    
-         <header class="settings-header">
+         <header class="event">
             <a href="/index.php">
                 <span>↫</span>
             </a>
@@ -100,5 +99,6 @@ if (isset($_POST['submit'])) {
                 <button type="submit" name="submit">Save</button>
             </form>
         </main>
+       <?php require_once "../components/footer.php"; ?>
     </body>
 </html>

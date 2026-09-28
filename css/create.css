@@ -23,11 +23,14 @@ form {
 
 form div label {
     align-self: flex-start;
-    margin-bottom: 1vh;
+    /*margin-bottom: 1vh;*/
     color: var(--color-primary-blue);
     font-family: var(--font-title);
 }
 
+form div {
+   margin-bottom: 2vh;
+}
 
 input {
     width: 90vw;
@@ -91,4 +94,34 @@ section {
 
 .event{
     padding-bottom:10px;
+main {
+    padding-bottom: 60px; /* a bit taller than your nav bar */
+}
+.image-picker {
+    /*display: none;*/
+
+    max-width: 90vw;
+    /*margin-top: 10px;*/
+    cursor: pointer;
+}
+
+.under{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.event {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    color: #5276B2;
+}
+.event span {
+    font-size: 2rem;
+}
+.event a {
+    text-decoration: none;
+    color: #5276B2;
 }
