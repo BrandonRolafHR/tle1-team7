@@ -61,6 +61,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="/css/style.css">
      <link rel="stylesheet" href="/css/calendar.css">
 </head>
+<?php $activePage = 'add'; ?>
 <body>
    
     

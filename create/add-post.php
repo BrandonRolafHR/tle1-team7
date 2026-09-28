@@ -85,6 +85,7 @@ if (isset($_POST['post'])) {
         }
     </style>
 </head>
+<?php $activePage = 'add'; ?>
 <body>
 <main>
     <h1>Add post</h1>

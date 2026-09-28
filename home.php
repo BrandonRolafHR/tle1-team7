@@ -33,7 +33,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/home.css">
 </head>
-
+<?php $activePage = 'home'; ?>
 <body>
 <header>
     <h1>home</h1>
