@@ -152,7 +152,7 @@ main {
     resize: none;       /* hide the manual resize handle */
     overflow: hidden;   /* no scrollbar flicker while growing */
     font: inherit;      /* so it matches your other inputs */
-    min-height: 40px;
+    min-height: 5vh;
     min-width: 90vw;
     max-width: 90vw;
 
