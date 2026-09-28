@@ -105,8 +105,8 @@ if (isset($_POST['post'])) {
             <?php if (isset($errors['image'])) echo "<p class='error'>{$errors['image']}</p>"; ?>
         </div>
         <div>
-            <label>Caption</label>
-            <input type="text" name="caption" value="<?= htmlspecialchars($_POST['caption'] ?? '') ?>">
+            <label for="caption">Caption</label>
+            <textarea name="caption" id="caption" rows="1"><?= htmlspecialchars($_POST['caption'] ?? '') ?></textarea>
             <?php if (isset($errors['caption'])) echo "<p class='error'>{$errors['caption']}</p>"; ?>
         </div>
         <div>
@@ -149,6 +149,16 @@ if (isset($_POST['post'])) {
             pickText.style.display = 'inline-block';
         }
     });
+
+    const caption = document.getElementById('caption');
+
+    function autoGrow() {
+        caption.style.height = 'auto';                    // reset so it can also shrink
+        caption.style.height = caption.scrollHeight + 'px';
+    }
+
+    caption.addEventListener('input', autoGrow);
+    autoGrow(); // sizes it correctly on page load (e.g. after a validation error re-fills it)
 </script>
 
 

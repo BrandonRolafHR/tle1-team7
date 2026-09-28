@@ -145,3 +145,16 @@ main {
     flex-direction: column;
     align-self: flex-start;
 }
+
+#caption {
+    border-radius: 10px;
+    border-color: var(--color-primary-blue);;
+    resize: none;       /* hide the manual resize handle */
+    overflow: hidden;   /* no scrollbar flicker while growing */
+    font: inherit;      /* so it matches your other inputs */
+    min-height: 40px;
+    min-width: 90vw;
+    max-width: 90vw;
+
+ field-sizing: content;
+}
