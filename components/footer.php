@@ -9,8 +9,8 @@
             <img src="../images/home-icon.png" alt="home icon" class="home">
         </div>
 
-        <div class="item <?php if(isset($activePage) && $activePage === 'calender') echo 'active'; ?>">
-            <img src="../images/agenda-icon.png" alt="calender icon" class="calender">
+        <div class="item <?php if(isset($activePage) && $activePage === 'calendar') echo 'active'; ?>">
+            <img src="../images/agenda-icon.png" alt="calendar icon" class="calendar">
         </div>
 
         <div class="item <?php if(isset($activePage) && $activePage === 'add') echo 'active'; ?>">
