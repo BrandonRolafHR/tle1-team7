@@ -24,4 +24,5 @@
         <div class="item <?php if(isset($activePage) && $activePage === 'profile') echo 'active'; ?>">
             <img src="../images/profile-icon.png" alt="profile icon" class="profile">
         </div>
+
     </footer>

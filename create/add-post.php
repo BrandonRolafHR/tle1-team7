@@ -13,11 +13,15 @@ if (isset($_POST['post'])) {
     $title = trim($_POST['title'] ?? '');
     $caption = trim($_POST['caption'] ?? '');
     $location = trim($_POST['location'] ?? '');
+    $milestone = trim($_POST['milestone'] ?? '');
+    $size = trim($_POST['size'] ?? '');
 
     // validation of form
     if ($title === '') $errors['title'] = 'Title is required';
     if ($caption === '') $errors['caption'] = 'Caption is required';
     if ($location === '') $errors['location'] = 'Location is required';
+    if ($milestone === '') $errors['milestone'] = 'Milestone is required';
+    if ($size === '') $errors['size'] = 'Milestone size is required';
 
     // image validation (optional)
     if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
@@ -53,6 +57,12 @@ if (isset($_POST['post'])) {
             mysqli_stmt_bind_param($stmt, "issss", $userId, $title, $imageData, $caption, $location);
             mysqli_stmt_execute($stmt);
 
+            $postId = mysqli_insert_id($db);
+
+            $stmt = mysqli_prepare($db, "INSERT INTO milestones (milestone, post_id, user_id, size) VALUES (?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "siis", $milestone, $postId, $userId, $size);
+            mysqli_stmt_execute($stmt);
+
             header('Location: /home.php');
             exit;
         }
@@ -69,7 +79,7 @@ if (isset($_POST['post'])) {
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/create.css">
 </head>
 <body>
@@ -106,6 +116,41 @@ if (isset($_POST['post'])) {
             </datalist>
             <?php if (isset($errors['location'])) echo "<p class='error'>{$errors['location']}</p>"; ?>
         </div>
+        <div>
+            <label>Choose milestone</label>
+            <select id="milestone" name="milestone">
+                <option value="" disabled selected></option>
+                <option value="../images/default-stone.png">default</option>
+                <option value="../images/question-stone.png">random poll</option>
+                <option value="../images/sport-stone.png">sports</option>
+                <option value="../images/event-stone.png">event</option>
+                <option value="../images/school-stone.png">school</option>
+                <option value="../images/work-stone.png">work</option>
+                <option value="../images/pet-stone.png">animal</option>
+                <option value="../images/love-stone.png">love</option>
+                <option value="../images/vacation-stone.png">vacation</option>
+                <option value="../images/bday-stone.png">birthday</option>
+                <option value="../images/easter-stone.png">easter</option>
+                <option value="../images/xmas-stone.png">christmas</option>
+                <option value="../images/newyear-stone.png">new years</option>
+            </select>
+            <?php if (isset($errors['milestone'])) echo "<p class='error'>{$errors['milestone']}</p>"; ?>
+
+             <div class="preview-container">
+                <img id="preview-img" src="../images/default-stone.png" alt="Preview milestone">
+            </div>
+        </div>
+        <label>Milestone size</label>
+        <select id="size" name="size">
+                <option value="" disabled selected></option>
+                <option value=".large">large</option>
+                <option value="medium">medium</option>
+                <option value="small">small</option>
+            </select>
+            <?php if (isset($errors['size'])) echo "<p class='error'>{$errors['size']}</p>"; ?>
+        <div>
+
+        </div>
 
         <button type="submit" name="post">Post</button>
     </form>
@@ -113,6 +158,16 @@ if (isset($_POST['post'])) {
 
 
 </main>
+
+<script>
+        const selectElement = document.getElementById('milestone');
+        const previewImage = document.getElementById('preview-img');
+
+        // Luister naar wijzigingen in de dropdown
+        selectElement.addEventListener('change', function() {
+            previewImage.src = this.value;
+        });
+    </script>
 
 <script>
     const imageInput = document.getElementById('image');

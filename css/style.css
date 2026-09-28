@@ -88,6 +88,7 @@ body {
 
 main {
     background-color: var(--color-cream);
+    padding-bottom: 60px;
 }
 
 form {
@@ -150,13 +151,18 @@ form {
     width: 330px;
 }
 
+#preview-img {
+    width: 150px;
+    height: 100%;
+}
+
     /*milestones css*/
-.milestone-path {
+/* .milestone-path {
     width: 100%;
     height: 450px;
-    overflow-x: hidden;   /* geen horizontale scroll */
-    overflow-y: scroll;   /* verticale scrollen */
-    white-space: nowrap;  /* voorkomt dat de afbeelding wrapt */
+    overflow-x: hidden;  
+    overflow-y: scroll;   
+    white-space: nowrap;  
 }
 
 .milestone-img {
@@ -165,12 +171,12 @@ form {
     flex-direction: column;
 }
 .milestone-img:nth-child(2) {
-    margin-top: -75px; /* overlap */
+    margin-top: -75px; 
     z-index: 5;
     position: relative;
-    width: 130px; /* pas de breedte aan naar wens */
+    width: 130px; 
     padding-left: 230px;
-}
+} */
 
 .bg-image {
         display: flex;

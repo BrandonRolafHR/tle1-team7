@@ -9,7 +9,7 @@ let profileIcon;
 
 function init() {
     homeIcon = document.querySelector('.home');
-    calendarIcon = document.querySelector('.calender');
+    calendarIcon = document.querySelector('.calendar');
     addIcon = document.querySelector('.add');
     friendIcon = document.querySelector('.friends');
     profileIcon = document.querySelector('.profile');
