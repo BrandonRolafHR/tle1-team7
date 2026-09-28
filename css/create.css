@@ -6,6 +6,43 @@ body {
     background-color: var(--color-cream);
 }
 
+.delete-actions {
+
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.delete-actions button, .delete-actions a {
+    padding: 10px 20px;
+    background: white;
+    font: inherit;
+    cursor: pointer;
+
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-actions a{
+    text-align: center;
+
+    border-radius: 12px;
+    border: 2px solid #4a6aa5;
+    font: inherit;
+    background: white;
+    font: inherit;
+    cursor: pointer;
+
+}
+.delete-actions .danger {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: white;
+}
+
+
 form {
     display: flex;
     align-items: center;

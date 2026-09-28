@@ -66,6 +66,19 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <button class="close-post" onclick="Close(<?= $post['id'] ?>)">❌</button>
                     </div>
 
+                    <div>
+<!--                    //need to check if user is the owner-->
+<!--                    //delete post-->
+                    <?php if ((int)$post['user_id'] === (int)$_SESSION['loggedInUser']['id']) { ?>
+                        <div class="post-menu">
+                            <button type="button" class="menu-toggle" onclick="toggleMenu(event, <?= $post['id'] ?>)" aria-label="Post options">⋯</button>
+                            <div class="menu-popup" id="menu<?= $post['id'] ?>">
+                                <a class="menu-delete" href="/create/delete.php?id=<?= $post['id'] ?>">Delete</a>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+
                     <div class="profile-container">
                         <?php if (!empty($post['avatar_id'])) { ?>
 
@@ -114,6 +127,23 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
             document.getElementById(`post${id}`).style.display = "none"
             document.getElementById(`open${id}`).style.display = "flex"
         }
+
+
+
+        function toggleMenu(event, id) {
+            event.stopPropagation();
+            const menu = document.getElementById(`menu${id}`);
+            const isOpen = menu.style.display === "block";
+            closeAllMenus();
+            menu.style.display = isOpen ? "none" : "block";
+        }
+
+        function closeAllMenus() {
+            document.querySelectorAll('.menu-popup').forEach(m => m.style.display = "none");
+        }
+
+        // clicking anywhere else closes the menu
+        document.addEventListener('click', closeAllMenus);
     </script>
 </body>
 
