@@ -1,0 +1,138 @@
+main{
+    color: var(--color-primary-blue);
+}
+/* calender */
+.agenda__header {
+    padding: 12px 0 12px 0;
+    border-bottom: 1px solid var(--color-primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.agenda__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.agenda__button {
+    padding: 8px 12px;
+    background: #eee;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    margin-right: 10px;
+    color: var(--color-primary-blue);
+    border-radius: 4px;
+    font-size: 14px;
+
+    &:hover {
+        background: #e5e5e5;
+    }
+}
+
+.table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 1.5px solid var(--color-primary-blue);
+    background: #c6d9f4;
+
+    th {
+        border: 1.5px solid #5276B2;
+        padding: 12px;
+        text-align: center;
+        /* background: #f1f5f9; */
+        background: #c6d9f4;
+        font-weight: 700;
+        font-size: 1rem;
+        border-bottom: 2.5px solid #5276B2;
+        vertical-align: top;
+    }
+
+    td {
+        width: 14.2857%;
+        height: 50px;
+        vertical-align: top;
+        padding-left: 6px;
+        
+    }
+    
+   
+
+
+}
+
+.dates {
+    border: 1.5px solid #5276B2;
+    background: #FBF7F4;
+    overflow: hidden;
+}
+
+.dates a {
+    display: block;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: var(--color-primary-blue);
+     
+}
+
+/* events lijst css */
+
+.events h2 {
+    padding:20px 15px 0px 15px;
+    color: var(--color-primary-blue);
+}
+
+.events a {
+    text-decoration: none;
+    color: var(--color-primary-blue);
+}
+
+.events-table{
+    height: 264px;
+   overflow-y: scroll; 
+   overflow-x: hidden; 
+
+}
+
+.events table {
+    width: 95%;
+    margin: 10px auto;
+    border-collapse: collapse;
+    font-size: 1rem;
+    border: 1.5px solid #c6d9f4;
+    background: var(--color-off-white);
+    color: var(--color-primary-blue);
+
+   
+}
+
+.events th,
+.events td {
+    border: 1.5px solid var(--color-primary-blue);
+    /* border: 1.5px solid #cbd5e1; */
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.events th {
+    background: var(--color-light-blue);
+    font-weight: 700;
+    border-bottom: 2.5px solid var(--color-primary-blue);
+}
+
+
+.events td:nth-child(4) {
+    max-width: 200px;
+}

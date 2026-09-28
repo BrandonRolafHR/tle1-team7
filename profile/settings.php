@@ -41,7 +41,7 @@
                 <div>wijzig ✏️</div>
             </a>
 
-            <a href="../Register/logout.php">
+            <a href="/Register/logout.php">
                 <div>uitloggen</div>
             </a>
 

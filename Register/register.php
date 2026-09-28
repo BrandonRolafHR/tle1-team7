@@ -33,7 +33,7 @@ if (isset($_POST['register'])) {
         } else {
             $age = $today->diff($birthDateObj)->y;
             if ($age < 16) { // pick whatever minimum age you need
-                $errors['birthdate'] = 'You must be at least 13 years old to register';
+                $errors['birthdate'] = 'You must be at least 16 years old to register';
             }
         }
     }

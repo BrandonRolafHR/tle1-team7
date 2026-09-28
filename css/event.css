@@ -1,0 +1,60 @@
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+     a {
+        text-decoration: none;
+    }
+    span {
+        font-size: 2rem;
+        color: var(--color-primary-blue);
+    }
+}
+
+body{
+    color: var(--color-primary-blue);
+    padding:20px;
+}
+
+h1{
+    font-size: 2.5rem;
+    margin:10px ;
+    text-transform: capitalize;
+    
+}
+
+a{
+    text-decoration: none;
+    color: var(--color-primary-blue);
+}
+
+.info{
+    margin: 10px 10px 20px 10px;
+    padding: 10px;
+    border: 3px solid var(--color-primary-blue);
+    background: var(--color-off-white);
+    min-height: 150px;
+    font-size: 1.5rem;
+}
+
+.button {
+    padding: 8px 12px;
+    background: #eee;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    margin: 0.5rem;
+    color: var(--color-primary-blue);
+    border-radius: 4px;
+    font-size: 1.5rem;
+
+    /* &:hover {
+        background: #e5e5e5;
+    } */
+}
+
+.edit{
+    padding: 5px;
+    font-size: 1rem;
+}

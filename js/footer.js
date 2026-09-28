@@ -24,7 +24,7 @@ function init() {
         window.location.href = '/create/create.php';
     });
     friendIcon.addEventListener('click', () => {
-        window.location.href = '/tle1-team7/';
+        window.location.href = '/friendslist.php';
     });
     profileIcon.addEventListener('click', () => {
         window.location.href = '/profile/profile.php';

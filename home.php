@@ -1,4 +1,14 @@
 <?php
+
+
+session_start(); // must be called before checking/using $_SESSION
+
+
+if (!isset($_SESSION['loggedInUser'])) {
+    header('Location: /Register/login.php');
+    exit;
+}
+
 require_once './included/connection.php';
 
 $query = "SELECT posts.*, users.username, users.avatar_id 
@@ -7,6 +17,7 @@ $query = "SELECT posts.*, users.username, users.avatar_id
           ORDER BY posts.id DESC";
 $result = mysqli_query($db, $query);
 $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 ?>
 
 <!doctype html>
