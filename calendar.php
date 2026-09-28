@@ -58,6 +58,7 @@ mysqli_close($db);
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/calendar.css">
 </head>
+<?php $activePage = 'calendar'; ?>
 <body>
 <?php require_once "components/nav.php"; ?>
 
