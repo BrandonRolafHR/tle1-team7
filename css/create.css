@@ -88,3 +88,20 @@ section {
     border-radius: 10px;
 
 }
+
+main {
+    padding-bottom: 60px; /* a bit taller than your nav bar */
+}
+.image-picker {
+    /*display: none;*/
+
+    max-width: 90vw;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.under{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
