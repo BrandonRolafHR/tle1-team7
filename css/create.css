@@ -92,6 +92,8 @@ section {
 
 }
 
+.event{
+    padding-bottom:10px;
 main {
     padding-bottom: 60px; /* a bit taller than your nav bar */
 }

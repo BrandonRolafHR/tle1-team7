@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
         
             <main>
             <form action="" method="POST">
-                <div>
+                <div class="event">
                 <label for="name">Event name</label>
                 <input type="text" name="name" id="name" >
                 </div>
@@ -82,12 +82,12 @@ if (isset($_POST['submit'])) {
                     <label for="date">date:</label>
                     <input type="date" name="date" id="date" >
                 </div> -->
-                <div>
+                <div class="event">
                     <label for="date">Date and time</label>
                     <input type="datetime-local" name="date" id="date">
                 </div>
 
-                <div>
+                <div class="event" >
                     <label for="description">Description</label>
                     <input type="description" name="description" id="description" >
                 </div>
