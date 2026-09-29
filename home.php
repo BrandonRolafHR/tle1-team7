@@ -36,6 +36,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php $activePage = 'home'; ?>
 <body>
     <header>
+        <a href="./js/text.html">go</a>
         <h1>home</h1>
         <?php require_once "components/nav.php"; ?>
     </header>

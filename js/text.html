@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Nova AI Chat</h2>
+    <input type="text" id="promptInput" placeholder="Typ iets...">
+    <button onclick="sendToNova()">Vraag Nova</button>
+    <p id="response"></p>
+
+    <script>
+        async function sendToNova() {
+            const prompt = document.getElementById('promptInput').value;
+            const responseElement = document.getElementById('response');
+            responseElement.innerText = "Denken...";
+
+            try {
+                // We praten met ONZE server, niet direct met de API
+                const response = await fetch('http://localhost:3000/ask-nova', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+
+                const data = await response.json();
+                responseElement.innerText = data.answer || data.error;
+            } catch (err) {
+                responseElement.innerText = "Error: " + err.message;
+            }
+        }
+    </script>
+</body>
+</html>

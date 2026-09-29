@@ -1,2 +1,4 @@
 connection.php
 readme.txt
+.env
+js/key.env
