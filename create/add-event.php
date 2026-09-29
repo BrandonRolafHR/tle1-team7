@@ -59,29 +59,34 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momento</title>
     <link rel="stylesheet" href="/css/style.css">
-     <link rel="stylesheet" href="/css/create.css">
+    <link rel="stylesheet" href="/css/create.css">
 </head>
 <?php $activePage = 'add'; ?>
 <body>
-         <header class="event">
+        <header class="event">
             <a href="/index.php">
                 <span>↫</span>
             </a>
             <h1>Add new event</h1>
-        </header>
+        </header>        
+        <main>
 
-        
-            <main>
             <form action="" method="POST">
                 <div class="event">
                 <label for="name">Event name</label>
                 <input type="text" name="name" id="name" >
                 </div>
 
-                 <!-- <div class="form-group">
-                    <label for="date">date:</label>
-                    <input type="date" name="date" id="date" >
-                </div> -->
+                <div>
+                    <label for="visible">Open to</label>
+                    <select id="visible" name= "visible">
+                        <option value="private">private</option>
+                        <option value="friends">friends</option>
+                        <option value="everyone">everyone</option>
+
+                    </select>
+                </div>
+
                 <div class="event">
                     <label for="date">Date and time</label>
                     <input type="datetime-local" name="date" id="date">
@@ -90,11 +95,7 @@ if (isset($_POST['submit'])) {
                 <div class="event" >
                     <label for="description">Description</label>
                     <input type="description" name="description" id="description" >
-                </div>
-
-               
-
-                
+                </div>               
 
                 <button type="submit" name="submit">Save</button>
             </form>
