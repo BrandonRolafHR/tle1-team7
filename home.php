@@ -30,8 +30,8 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <?php $activePage = 'home'; ?>
 <body>

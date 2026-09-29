@@ -42,7 +42,7 @@ if (!$event) {
     <main>
     <div class="info">
     <p>Organizer: <?= htmlspecialchars($event['username']) ?></p>
-    <p>Date: <?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))); ?></td>
+    <p>Date: <?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))); ?></p>
     <p>Description:<br><?= $event['description'] ?></p>
     </div>
 

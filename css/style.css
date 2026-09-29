@@ -13,10 +13,10 @@
 
     /* colors */
     --color-dark: #4a4845;
-    --color-light-blue: #c6d9f4;
+    --color-light-blue: rgba(198, 217, 244, 0.65);
     --color-primary-blue: #54a0d8;
     --color-blue: #e9f6f6;
-    --color-off-white: #FBF7F4;
+    --color-off-white: rgba(251, 247, 244, 0.7);
     --color-accent: #5276B2;
 
     /* gradients */
@@ -58,6 +58,7 @@ main {
 
 h1, h2 {
     font-family: var(--font-title);
+    color: rgb(82, 118, 178);
 }
 
 .websiteContainer {
@@ -70,7 +71,7 @@ h1, h2 {
     min-height: 100vh;
     max-width: 700px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 0 100px;      /* room for the fixed footer */
     background: var(--gradient-main);
     /*border-radius: 5vh 5vh 5vh 5vh;*/
 }
@@ -119,6 +120,10 @@ footer .item {
     border-radius: 50%;
 }
 
+
+
+
+
 /* actieve pagina highlight */
 footer .item.active {
     background: var(--gradient-main);
@@ -162,7 +167,7 @@ footer .item.active {
 .user-info p,
 h2 {
     padding-top: 5px;
-    padding-left: 10%;
+    /*padding-left: 10%;*/
     color: var(--color-accent);
 }
 

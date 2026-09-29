@@ -10,7 +10,7 @@ form {
     display: flex;
     align-items: center;
     flex-direction: column;
-  ;
+
     background: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
     border: none;
     color: rgb(82, 118, 178);

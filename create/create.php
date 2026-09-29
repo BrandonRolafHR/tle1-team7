@@ -17,11 +17,12 @@ if (!isset($_SESSION['loggedInUser'])) {
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/create.css">
 </head>
 <?php $activePage = 'add'; ?>
 <body>
+<div class="websiteContainer">
 <main>
 
 <section>
@@ -31,8 +32,9 @@ if (!isset($_SESSION['loggedInUser'])) {
         <button type="button" class="add-event">Add event</button>
     </div>
 </section>
-</main>
 
+</main>
+</div>
 <?php require_once "../components/footer.php"; ?>
 </body>
 
