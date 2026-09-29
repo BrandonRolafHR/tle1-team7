@@ -58,9 +58,11 @@ if (isset($_POST['post'])) {
             mysqli_stmt_execute($stmt);
 
             $postId = mysqli_insert_id($db);
+            date_default_timezone_set('Europe/Amsterdam');
+            $created_at = date('Y-m-d H:i:s');
 
-            $stmt = mysqli_prepare($db, "INSERT INTO milestones (milestone, post_id, user_id, size) VALUES (?, ?, ?, ?)");
-            mysqli_stmt_bind_param($stmt, "siis", $milestone, $postId, $userId, $size);
+            $stmt = mysqli_prepare($db, "INSERT INTO milestones (milestone, post_id, user_id, size, created_at) VALUES (?, ?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "siiss", $milestone, $postId, $userId, $size, $created_at);
             mysqli_stmt_execute($stmt);
 
             header('Location: /home.php');
@@ -143,7 +145,7 @@ if (isset($_POST['post'])) {
         <label>Milestone size</label>
         <select id="size" name="size">
                 <option value="" disabled selected></option>
-                <option value=".large">large</option>
+                <option value="large">large</option>
                 <option value="medium">medium</option>
                 <option value="small">small</option>
             </select>

@@ -101,6 +101,7 @@ form {
     justify-content: space-around;
     align-items: center;
     padding: 5px;
+    cursor: pointer;
 }
 
 .profile-header h1 {
@@ -182,7 +183,7 @@ form {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.75rem;
+        font-size: 1.25rem;
         background-image: url("../images/standard-header-bg.jpg");
         background-size: cover;
         background-position: center;
@@ -192,3 +193,85 @@ form {
         margin: 15px;
 
     }
+
+
+.large-milestone {
+    width: 130px;
+    height: 100%;
+}
+
+.medium-milestone {
+    width: 100px;
+    height: 100%;
+}
+
+.small-milestone {
+    width: 70px;
+    height: 100%;
+}
+
+.milestone-overzicht {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 420px;
+    overflow-x: hidden;  
+    overflow-y: scroll;   
+    white-space: nowrap;
+}
+
+.milestone-post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #FBF7F4;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.milestone-item {
+    cursor: pointer;
+}
+
+.post-image {
+    height: 100%s;
+    width: 333.33px;
+    border-radius: 10px;
+}
+
+.edit-profile {
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        color: #5276B2;
+        input {
+            border-radius: 5px;
+            border: 1px solid #F7EBE0;
+            background: #FBF7F4;
+        }
+        textarea {
+            border-radius: 5px;
+            border: 1px solid #F7EBE0;
+            background: #FBF7F4;
+        }
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding-bottom: 10px;
+    }
+    button {
+        background: #5276B2;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+}
+}

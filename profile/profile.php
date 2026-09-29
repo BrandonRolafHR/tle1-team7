@@ -11,9 +11,9 @@ if (!isset($_SESSION['loggedInUser'])) {
     $result = mysqli_query($db, $query);
     $user = mysqli_fetch_assoc($result);
 
-    $query = "SELECT * FROM milestones WHERE user_id = " . $_SESSION['loggedInUser']['id'];
+    $query = "SELECT * FROM milestones WHERE user_id = " . $_SESSION['loggedInUser']['id'] . " ORDER BY created_at DESC";
     $result = mysqli_query($db, $query);
-    $milestones = mysqli_fetch_assoc($result);
+    $milestones = mysqli_fetch_all($result, MYSQLI_ASSOC);
     mysqli_close($db);
 }
 
@@ -27,6 +27,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profiel</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/profile.js"></script>
 </head>
 <?php $activePage = 'profile'; ?>
 <body>
@@ -38,10 +39,15 @@ if (!isset($_SESSION['loggedInUser'])) {
     </header>
 
     <main>
-        <div class="bg-image">Bio</div>
+        <div class="bg-image"><?= $user['bio'] ?></div>
         <section class="milestones">
         <h2>Milestones</h2>
         <div class="milestone-overzicht">
+            <?php foreach ($milestones as $milestone): ?>
+                <div class="milestone-item" data-id="<?= $milestone['id'] ?>">
+                    <img src="<?= $milestone['milestone'] ?>" alt="milestone image" class="<?= $milestone['size']?>-milestone">
+                </div>
+            <?php endforeach; ?>
         </div>
         
 
@@ -50,10 +56,3 @@ if (!isset($_SESSION['loggedInUser'])) {
     <?php require_once "../components/footer.php" ?>
 </body>
 </html>
-
-<!-- <div class="milestone-path">
-            <img src="../images/milestone-path.png" alt="milestone" class="milestone-img">
-            <a href="bday-milestone.php" class="milestone-img">
-            <img src="../images/bday-stone.png" alt="milestone" class="milestone-img">
-            </a>
-        </div> -->
