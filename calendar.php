@@ -14,6 +14,9 @@ require_once "included/functions.php";
 if ($db->connect_error) {
     die("Database fout");
 }
+
+$userId = (int)$_SESSION['loggedInUser']['id'];
+
 /* ===== Maand & jaar ===== */
 $month = (int)($_GET['month'] ?? date('m'));
 $year  = (int)($_GET['year'] ?? date('Y'));
@@ -26,23 +29,59 @@ $monthName    = getMonthName($month);
 [$nextMonth, $nextYear] = getNextMonth($month, $year);
 
 /* ===== Reserveringen vooraf ophalen ===== */
+// $eventsByDate = [];
+// for ($day = 1; $day <= $daysInMonth; $day++) {
+//     $date = "$year-" . str_pad($month, 2, '0', STR_PAD_LEFT) . "-" . str_pad($day, 2, '0', STR_PAD_LEFT);
+//   $query = "SELECT events.*, users.username 
+//           FROM events 
+//           JOIN users ON events.user_id = users.id 
+//           WHERE DATE(events.date) = '$date'";
+//     $results = mysqli_query($db, $query);
+//     $eventsByDate[$date] = mysqli_fetch_all($results, MYSQLI_ASSOC);
+// }
+// /* ===== Alle events ophalen voor de lijst ===== */
+// $allEventsQuery = "SELECT events.*, users.username 
+//                     FROM events 
+//                     JOIN users ON events.user_id = users.id 
+//                     ORDER BY events.date ASC";
+// $allEventsResult = mysqli_query($db, $allEventsQuery);
+// $allEvents = mysqli_fetch_all($allEventsResult, MYSQLI_ASSOC);
+// mysqli_close($db);
+
+// $sql = "SELECT events.*, users.username
+//         FROM events
+//         JOIN users ON events.user_id = users.id
+//         WHERE events.user_id = ?
+//            OR events.visibility = 'everyone'
+//            OR (events.visibility = 'friends' AND events.user_id IN (
+//                 SELECT friend_id FROM friends WHERE user_id = ?
+//                 UNION
+//                 SELECT user_id FROM friends WHERE friend_id = ?
+//            ))
+//         ORDER BY events.date ASC";
+// $stmt = mysqli_prepare($db, $sql);
+// mysqli_stmt_bind_param($stmt, 'iii', $userId, $userId, $userId);
+// mysqli_stmt_execute($stmt);
+// $allEvents = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
+
+$sql = "SELECT events.*, users.username
+        FROM events
+        JOIN users ON events.user_id = users.id
+        WHERE events.user_id = ?
+           OR events.id IN (
+                SELECT event_id FROM user_event WHERE user_id = ?
+           )
+        ORDER BY events.date ASC";
+$stmt = mysqli_prepare($db, $sql);
+mysqli_stmt_bind_param($stmt, 'ii', $userId, $userId);
+mysqli_stmt_execute($stmt);
+$allEvents = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
+/* ===== Groeperen per datum voor de kalender ===== */
 $eventsByDate = [];
-for ($day = 1; $day <= $daysInMonth; $day++) {
-    $date = "$year-" . str_pad($month, 2, '0', STR_PAD_LEFT) . "-" . str_pad($day, 2, '0', STR_PAD_LEFT);
-  $query = "SELECT events.*, users.username 
-          FROM events 
-          JOIN users ON events.user_id = users.id 
-          WHERE DATE(events.date) = '$date'";
-    $results = mysqli_query($db, $query);
-    $eventsByDate[$date] = mysqli_fetch_all($results, MYSQLI_ASSOC);
+foreach ($allEvents as $event) {
+    $eventsByDate[substr($event['date'], 0, 10)][] = $event;
 }
-/* ===== Alle events ophalen voor de lijst ===== */
-$allEventsQuery = "SELECT events.*, users.username 
-                    FROM events 
-                    JOIN users ON events.user_id = users.id 
-                    ORDER BY events.date ASC";
-$allEventsResult = mysqli_query($db, $allEventsQuery);
-$allEvents = mysqli_fetch_all($allEventsResult, MYSQLI_ASSOC);
+
 mysqli_close($db);
 ?>
 
@@ -89,13 +128,12 @@ mysqli_close($db);
                 ?>
                 <td class="table dates">
                     <strong><?= $day ?></strong><br>
-                <?php foreach ($eventsByDate[$currentDate] as $event): ?>
-                    <a href="/event.php?id=<?= $event['id'] ?>">
-                    <?= $event['username'] ?><br>
-                    <?= $event['name'] ?><br>
+                  <?php foreach ($eventsByDate[$currentDate] ?? [] as $event): ?>
+                    <a href="/event.php?id=<?= (int)$event['id'] ?>">
+                        <?= htmlentities($event['username']) ?><br>
+                        <?= htmlentities($event['name']) ?><br>
                     </a>
-                <?php endforeach; ?>
-                    
+                    <?php endforeach; ?>  
                 </td>
 
                 <?php if ((($day + $firstWeekDay) % 7) == 0): ?>
@@ -104,8 +142,12 @@ mysqli_close($db);
                 <?php endfor; ?>
             </tr>
         </table>
-   
-        <div class="events">
+
+        <div>
+            <a href="discover-event.php">Join new events</a>
+        </div>
+
+            <div class="events">
             <h2>Alle events</h2>
         <div class="events-table">
             <table>
@@ -138,3 +180,4 @@ mysqli_close($db);
 </main>
 <?php require_once "components/footer.php"; ?>
 </body>
+</html>

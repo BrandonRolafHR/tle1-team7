@@ -30,6 +30,8 @@ if (!isset($_SESSION['loggedInUser'])) {
     <div class="prompt">
         <button type="button" class="add-post">Add post</button>
         <button type="button" class="add-event">Add event</button>
+        <button type="button" class="join-event">Join event</button>
+
     </div>
 </section>
 
@@ -45,5 +47,8 @@ if (!isset($_SESSION['loggedInUser'])) {
     });
     document.querySelector('.add-event').addEventListener('click', () => {
         window.location.href = '/create/add-event.php';
+    });
+    document.querySelector('.join-event').addEventListener('click', () => {
+        window.location.href = '../discover-event.php';
     });
 </script>

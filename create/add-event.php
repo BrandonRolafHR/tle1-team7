@@ -13,10 +13,11 @@ if (isset($_POST['submit'])) {
     require_once "../included/connection.php";
 
     // Get form data
-    $name = mysqli_escape_string($db, $_POST['name']);
-    $date = mysqli_escape_string($db, $_POST['date']);
-    $description = mysqli_escape_string($db, $_POST['description']);
-    $userId = (int)$_SESSION['loggedInUser']['id'];
+    $name        = trim($_POST['name'] ?? '');
+    $date        = $_POST['date'] ?? '';
+    $description = trim($_POST['description'] ?? '');
+    $visible     = $_POST['visible'] ?? 'private';
+    $userId      = (int)$_SESSION['loggedInUser']['id'];
 
     // Server-side validation
     
@@ -28,25 +29,20 @@ if (isset($_POST['submit'])) {
     }
     
     
-    
+    if (!in_array($visible, ['private', 'friends', 'everyone'], true)) {
+        $visible = 'private';
+    }
 
     // If data valid
-    if (empty($errors)) {
-        //update user data in the database.
-                $query = "INSERT INTO events (user_id, name, date, description) 
-                  VALUES ('$userId', '$name', '$date', '$description')";
+      if (empty($errors)) {
+        $stmt = mysqli_prepare($db,
+            "INSERT INTO events (user_id, name, date, description, visibility)
+             VALUES (?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, 'issss', $userId, $name, $date, $description, $visible);
 
-        $result = mysqli_query($db, $query);
-
-        if ($result) {
+        if (mysqli_stmt_execute($stmt)) {
             mysqli_close($db);
-            
             header('Location: /calendar.php');
-            // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        
-
-// header("location:javascript://history.go(-1)");
-
             exit;
         }
     }
@@ -59,47 +55,47 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momento</title>
     <link rel="stylesheet" href="/css/style.css">
-     <link rel="stylesheet" href="/css/calendar.css">
+    <link rel="stylesheet" href="/css/create.css">
 </head>
 <?php $activePage = 'add'; ?>
 <body>
-   
-    
-         <header class="settings-header">
+        <header class="event">
             <a href="/index.php">
                 <span>↫</span>
             </a>
             <h1>Add new event</h1>
-        </header>
+        </header>        
+        <main>
 
-        
-            <main class="edit-profile">
             <form action="" method="POST">
-                <div class="form-group">
-                <label for="name">event name:</label>
+                <div class="event">
+                <label for="name">Event name</label>
                 <input type="text" name="name" id="name" >
                 </div>
 
-                 <!-- <div class="form-group">
-                    <label for="date">date:</label>
-                    <input type="date" name="date" id="date" >
-                </div> -->
-                <div class="form-group">
-                    <label for="date">date and time:</label>
+                <div>
+                    <label for="visible">Open to</label>
+                    <select id="visible" name= "visible">
+                        <option value="private">private</option>
+                        <option value="friends">friends</option>
+                        <option value="everyone">everyone</option>
+
+                    </select>
+                </div>
+
+                <div class="event">
+                    <label for="date">Date and time</label>
                     <input type="datetime-local" name="date" id="date">
                 </div>
 
-                <div class="form-group">
-                    <label for="description">description:</label>
-                    <input type="description" name="description" id="description" >
-                </div>
+                <div class="event" >
+                    <label for="description">Description</label>
+                    <input type="text" name="description" id="description" >
+                </div>               
 
-               
-
-                
-
-                <button type="submit" name="submit">opslaan</button>
+                <button type="submit" name="submit">Save</button>
             </form>
         </main>
+       <?php require_once "../components/footer.php"; ?>
     </body>
 </html>
