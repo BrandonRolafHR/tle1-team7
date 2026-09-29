@@ -35,6 +35,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </head>
 <?php $activePage = 'home'; ?>
 <body>
+<div class="websiteContainer">
     <header>
         <h1>home</h1>
         <?php require_once "components/nav.php"; ?>
@@ -116,7 +117,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </section>
     </main>
     <?php require_once "components/footer.php"; ?>
-
+</div>
     <script>
         function Open(id) {
             document.getElementById(`post${id}`).style.display = "block"
