@@ -37,7 +37,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <body>
 <div class="websiteContainer">
     <header>
-        <h1>home</h1>
+        <h1>Home</h1>
         <?php require_once "components/nav.php"; ?>
     </header>
 

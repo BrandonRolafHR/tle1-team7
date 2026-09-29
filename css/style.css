@@ -61,15 +61,18 @@ h1, h2 {
 }
 
 .websiteContainer {
-    position: sticky;
+    position: relative;
+    align-self: center;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     min-height: 100vh;
     max-width: 700px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 0;
     background: var(--gradient-main);
+    /*border-radius: 5vh 5vh 5vh 5vh;*/
 }
 
 .bg-image {
