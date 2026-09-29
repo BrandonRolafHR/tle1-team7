@@ -87,6 +87,7 @@ if (isset($_POST['post'])) {
 </head>
 <?php $activePage = 'add'; ?>
 <body>
+<div class="websiteContainer">
 <main>
     <h1>Add post</h1>
     <form method="post" enctype="multipart/form-data">
@@ -98,15 +99,15 @@ if (isset($_POST['post'])) {
         <div class="under">
             <label>Image</label>
             <label for="image" class="image-picker">
-                <img id="preview" src="" alt="Tap to change image" style="display: none; max-width: 90vw; margin-top: 10px; cursor: pointer;">
+                <img id="preview" src="" alt="Tap to change image" style="display: none; max-width: 90vw; margin-top: 10px; cursor: pointer; border-radius: 2vh;">
                 <span id="pick-text" class="pick-btn">Choose image</span>
             </label>
             <input type="file" name="image" id="image" accept="image/*" hidden>
             <?php if (isset($errors['image'])) echo "<p class='error'>{$errors['image']}</p>"; ?>
         </div>
         <div>
-            <label>Caption</label>
-            <input type="text" name="caption" value="<?= htmlspecialchars($_POST['caption'] ?? '') ?>">
+            <label for="caption">Caption</label>
+            <textarea name="caption" id="caption" rows="1"><?= htmlspecialchars($_POST['caption'] ?? '') ?></textarea>
             <?php if (isset($errors['caption'])) echo "<p class='error'>{$errors['caption']}</p>"; ?>
         </div>
         <div>
@@ -126,7 +127,7 @@ if (isset($_POST['post'])) {
     </form>
 
 </main>
-
+</div>
 <script>
     const imageInput = document.getElementById('image');
     const preview = document.getElementById('preview');
@@ -149,6 +150,16 @@ if (isset($_POST['post'])) {
             pickText.style.display = 'inline-block';
         }
     });
+
+    const caption = document.getElementById('caption');
+
+    function autoGrow() {
+        caption.style.height = 'auto';                    // reset so it can also shrink
+        caption.style.height = caption.scrollHeight + 'px';
+    }
+
+    caption.addEventListener('input', autoGrow);
+    autoGrow(); // sizes it correctly on page load (e.g. after a validation error re-fills it)
 </script>
 
 

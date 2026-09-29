@@ -65,7 +65,7 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
     <main>
     <div class="info">
     <p>Organizer: <?= htmlspecialchars($event['username']) ?></p>
-    <p>Date: <?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))); ?></td>
+    <p>Date: <?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))); ?></p>
     <p>Description:<br><?= $event['description'] ?></p>
     </div>
 

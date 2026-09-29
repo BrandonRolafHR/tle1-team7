@@ -102,11 +102,14 @@ mysqli_close($db);
 <?php require_once "components/nav.php"; ?>
 
 <main >
-     <h1>Calendar</h1>  
+    <div class="websiteContainer">
+        <header>
+     <h1>Calendar</h1>
+        </header>
 <div class="agenda__header">
-            <a class="agenda__button" href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>">← Vorige</a>
+            <a class="agenda__button" href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>">←</a>
             <h2 class="agenda__title"><?= $monthName ?> <?= $year ?></h2>
-            <a class="agenda__button" href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>">Volgende →</a>
+            <a class="agenda__button" href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>">→</a>
         </div>
     
         <table class="table">
@@ -172,6 +175,7 @@ mysqli_close($db);
                 </tbody>
             </table>
             </div>
+        </div>
         </div>
 </main>
 <?php require_once "components/footer.php"; ?>

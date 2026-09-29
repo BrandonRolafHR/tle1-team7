@@ -1,48 +1,116 @@
-* {
-    margin: 0;
-}
-
 @font-face {
     font-family: 'opendyslexic';
     src: url('/fonts/OpenDyslexic-Regular.otf') format('opentype');
     font-style: normal;
     font-weight: normal;
+    font-display: swap;
 }
 
-@font-face {
-    font-family: 'Sono';
-    src: url('https://fonts.googleapis.com/css2?family=Sono:wght,MONO@200..800,1&display=swap');
-    font-style: normal;
-    font-weight: normal;
+:root {
+    /* fonts */
+    --font-title: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: Arial, sans-serif;
+
+    /* colors */
+    --color-dark: #4a4845;
+    --color-light-blue: rgba(198, 217, 244, 0.65);
+    --color-primary-blue: #54a0d8;
+    --color-blue: #e9f6f6;
+    --color-off-white: rgba(251, 247, 244, 0.7);
+    --color-accent: #5276B2;
+
+    /* gradients */
+    --gradient-main: linear-gradient(to bottom, rgba(178, 225, 255, 0.8) 0%, rgba(102, 182, 252, 0.65) 100%);
+    --gradient-light: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
+
+    /* cursors */
+    --cur-normal:      url("../images/cursors/Normal%20Select.cur");
+    --cur-link:        url("../images/cursors/Link%20Select.cur");
+    --cur-help:        url("../images/cursors/Help%20Select.cur");
+    --cur-move:        url("../images/cursors/Move.cur");
+    --cur-unavailable: url("../images/cursors/Unavailable%20.cur");
+    --cur-horizontal:  url("../images/cursors/Horizontal%20Resize.cur");
+    --cur-vertical:    url("../images/cursors/Vertical%20Resize.cur");
+    --cur-diag1:       url("../images/cursors/Diagonal%20Resize%201.cur");
+    --cur-diag2:       url("../images/cursors/Diagonal%20Resize%202.cur");
+    --cur-alternate:   url("../images/cursors/Alternate%20Select.cur");
+    --cur-handwriting: url("../images/cursors/Handwriting.cur");
+}
+
+body.dyslexia-mode {
+    --font-body: 'opendyslexic', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
 }
 
 body {
-    background: #F7EBE0;
+    background: url("../images/background/skybox.png") center center/cover no-repeat fixed;
+    scrollbar-color: rgba(35, 92, 105, 0.8) rgba(31, 31, 31, 0.65);
+    font-family: var(--font-body);
+    cursor: var(--cur-normal), auto;
+}
+
+main {
+    font-family: var(--font-title);
+}
+
+h1, h2 {
+    font-family: var(--font-title);
+    color: rgb(82, 118, 178);
+}
+
+.websiteContainer {
+    position: relative;
+    align-self: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100vh;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 0 100px;      /* room for the fixed footer */
+    background: var(--gradient-main);
+    /*border-radius: 5vh 5vh 5vh 5vh;*/
+}
+
+.bg-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 200px;
+    margin: 15px;
+    border-radius: 10px;
+    font-size: 1.75rem;
+    background-image: url("../images/standard-header-bg.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 footer {
     display: flex;
     justify-content: space-around;
-    background: #FBF7F4;
-    margin: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 660px;          /* 700px container minus 20px on each side */
+    box-sizing: border-box;
+    margin: 10px 0;
     padding: 10px;
     border-radius: 40px;
-    position: fixed;
-    left: 10px;
-    right: 10px;
-    bottom: 0;
+    background: var(--gradient-light);
+    min-width: 300px;
 }
 
 footer img {
     height: 40px;
     width: auto;
 }
-/* footer div.active {
-    background: #F7EBE0;
-    width: 60px;
-    height: 60px;   
-    border-radius: 50%;
-} */
 
 footer .item {
     display: flex;
@@ -52,49 +120,15 @@ footer .item {
     border-radius: 50%;
 }
 
+
+
+
+
 /* actieve pagina highlight */
 footer .item.active {
-    background: #F7EBE0; /* beige bubble */
-    /* box-shadow: 0 0 12px rgba(0,0,0,0.25); */
+    background: var(--gradient-main);
 }
 
-:root {
-    --font-title: 'Sono', monospace;
-    --font-body: Arial, sans-serif;
-    --color-dark: #4a4845; /* R: 75, G: 73, B: 70 */ /* (darkmode) */
-    --color-light-blue: #c6d9f4; /* R: 199, G: 217, B: 240 */
-    --color-primary-blue: rgb(82, 118, 178); /* R: 83, G: 118, B: 178 */
-    --color-cream: #F7EBE0; /* R: 247, G: 235, B: 223 */
-    --color-off-white: #FBF7F4; /* R: 251, G: 241, B: 244 */
-}
-
-:root {
-    --font-body: Arial, sans-serif;
-}
-
-body.dyslexia-mode {
-    --font-body: 'opendyslexic', Arial, sans-serif;
-}
-
-h1, h2 {
-    font-family: var(--font-title);
-}
-
-
-body {
-    font-family: var(--font-body);
-}
-
-
-main {
-    background-color: var(--color-cream);
-}
-
-form {
-    background-color: var(--color-cream);
-}
-
-/* css voor profile en settings */
 .profile-header {
     display: flex;
     justify-content: space-around;
@@ -103,7 +137,7 @@ form {
 }
 
 .profile-header h1 {
-    color: #5276B2;
+    color: var(--color-accent);
 }
 
 .settings-link {
@@ -116,73 +150,99 @@ form {
     flex-direction: row;
     justify-content: flex-start;
     gap: 10px;
-    color: #5276B2;
+    color: var(--color-accent);
 }
+
 .settings-header span {
     font-size: 2rem;
 }
+
 .settings-header a {
     text-decoration: none;
-    color: #5276B2;
+    color: var(--color-accent);
 }
 
-.user-info p, h2{
-    padding-left: 10%;
-    color: #5276B2;
+/* NOTE: the bare "h2" here applies to every h2 on the site, not just
+   the ones inside .user-info. Change to ".user-info h2" if that's not intended. */
+.user-info p,
+h2 {
     padding-top: 5px;
+    /*padding-left: 10%;*/
+    color: var(--color-accent);
 }
 
 .user-info a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.25rem;
     display: flex;
     justify-content: center;
     padding-top: 10px;
-}
-.user-info div {
-    display: flex;
-    border: 2px solid #5276B2;
-    background:#5276B2;
-    padding: 5px 10px;
-    border-radius: 10px;
-    justify-content: center;
-    width: 330px;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #fff;
 }
 
-    /*milestones css*/
+.user-info div {
+    display: flex;
+    justify-content: center;
+    width: 330px;
+    padding: 5px 10px;
+    border: 2px solid var(--color-accent);
+    border-radius: 10px;
+    background: var(--color-accent);
+}
+
 .milestone-path {
     width: 100%;
     height: 450px;
     overflow-x: hidden;   /* geen horizontale scroll */
-    overflow-y: scroll;   /* verticale scrollen */
+    overflow-y: scroll;   /* verticaal scrollen */
     white-space: nowrap;  /* voorkomt dat de afbeelding wrapt */
 }
 
 .milestone-img {
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
+
 .milestone-img:nth-child(2) {
-    margin-top: -75px; /* overlap */
-    z-index: 5;
     position: relative;
-    width: 130px; /* pas de breedte aan naar wens */
+    z-index: 5;
+    width: 130px;
+    margin-top: -75px;    /* overlap */
     padding-left: 230px;
 }
 
-.bg-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.75rem;
-        background-image: url("../images/standard-header-bg.jpg");
-        background-size: cover;
-        background-position: center;
-        width: auto;
-        height: 200px;
-        border-radius: 10px;
-        margin: 15px;
+/* clickable */
+a, button, summary, label, select, .item,
+[role="button"], input[type="submit"] {
+    cursor: var(--cur-link), pointer;
+}
 
-    }
+/* help */
+[title], .help {
+    cursor: var(--cur-help), help;
+}
+
+/* move */
+.draggable, [draggable="true"] {
+    cursor: var(--cur-move), move;
+}
+
+/* disabled / not allowed */
+:disabled, [aria-disabled="true"], .disabled {
+    cursor: var(--cur-unavailable), not-allowed;
+}
+
+/* resizing */
+.resize-h  { cursor: var(--cur-horizontal), ew-resize; }
+.resize-v  { cursor: var(--cur-vertical),   ns-resize; }
+.resize-d1 { cursor: var(--cur-diag1),      nwse-resize; }
+.resize-d2 { cursor: var(--cur-diag2),      nesw-resize; }
+
+/* extras: add these classes where you want them */
+.alt-select  { cursor: var(--cur-alternate),   alias; }
+.handwriting { cursor: var(--cur-handwriting), crosshair; }
+
+/* busy / working (.ani files don't work in browsers) */
+.busy    { cursor: wait; }
+.working { cursor: progress; }

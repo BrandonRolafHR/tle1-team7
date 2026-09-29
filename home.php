@@ -30,13 +30,14 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title></title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <?php $activePage = 'home'; ?>
 <body>
+<div class="websiteContainer">
     <header>
-        <h1>home</h1>
+        <h1>Home</h1>
         <?php require_once "components/nav.php"; ?>
     </header>
 
@@ -116,7 +117,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </section>
     </main>
     <?php require_once "components/footer.php"; ?>
-
+</div>
     <script>
         function Open(id) {
             document.getElementById(`post${id}`).style.display = "block"

@@ -1,5 +1,5 @@
 main {
-    margin: 4vw;
+
 }
 
 body {
@@ -10,8 +10,17 @@ form {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 2vh;
-    margin-top: 3vh;
+
+    background: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
+    border: none;
+    color: rgb(82, 118, 178);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    font-size: 16px;
+    border-radius: 5vh 5vh 5vh 5vh;
+    margin: 3vh 2vh 5vw 5vw;
 }
 
 form div {
@@ -19,29 +28,39 @@ form div {
     align-items: center;
     flex-direction: column;
     margin-bottom: 2vh;
+    width: 100%;
+
 }
 
 form div label {
     align-self: flex-start;
     margin-bottom: 1vh;
-    color: var(--color-primary-blue);
+    color: rgb(82, 118, 178);
     font-family: var(--font-title);
 }
 
+input,
+button {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+}
 
 input {
-    width: 90vw;
     height: 5vh;
-    border-radius: 10px;
-    border-color: var(--color-primary-blue);;
+    min-height: 40px;
+    border: 2px solid var(--color-primary-blue);
 }
 
 button {
-    width: 90vw;
-    height: 6vh;
-    background-color: var(--color-light-blue);
-    border-radius: 10px;
-    border: none;
+    height: 5vh;
+    min-height: 40px;
+    margin: 10px 0 0;
+    color: var(--color-accent);
+    font-weight: bold;
+    background: var(--gradient-main);
+    border: 1px solid rgba(103, 182, 255, 0.65);
+    border-width: 1px 2px 0;
 }
 
 p {
@@ -51,10 +70,10 @@ p {
 }
 
 h1 {
-    color: var(--color-primary-blue);;
+    color: rgb(82, 118, 178);
 
     text-align: center;
-    margin-top: 5vh;
+    /*margin-top: 5vh;*/
 }
 
 button:active {
@@ -74,5 +93,5 @@ a {
     font-style: italic;
     font-size: .8rem;
     text-decoration: none;
-    color: var(--color-primary-blue);
+    color: rgb(82, 118, 178);
 }

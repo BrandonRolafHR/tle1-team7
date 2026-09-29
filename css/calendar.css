@@ -1,14 +1,30 @@
 main{
     color: var(--color-primary-blue);
 }
+
+main {
+
+}
+header{
+    padding: 20px 5vw;
+    padding-bottom: 0;
+}
+
+
 /* calender */
 .agenda__header {
+    width: 90%;
     padding: 12px 0 12px 0;
-    border-bottom: 1px solid var(--color-primary-blue);
+    /*border-bottom: 1px solid var(--color-primary-blue);*/
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    background: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
+    border: none;
+    color: rgb(82, 118, 178);
+    border-radius: 5vh 5vh 5vh 5vh;
+    margin: 3vh 2vh 5vw 5vw;
+    margin-inline: auto;
 }
 
 .agenda__title {
@@ -19,59 +35,86 @@ main{
 }
 
 .agenda__button {
-    padding: 8px 12px;
-    background: #eee;
-    border: 1px solid #ccc;
-    text-decoration: none;
-    margin-right: 10px;
-    color: var(--color-primary-blue);
-    border-radius: 4px;
-    font-size: 14px;
 
-    &:hover {
-        background: #e5e5e5;
-    }
+    min-height: 40px;
+    margin: 0px 10px 0;
+    color: var(--color-accent);
+    font-weight: bold;
+    background: var(--gradient-main);
+    border: 1px solid rgba(103, 182, 255, 0.65);
+    border-width: 1px 2px 0;
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+
+    max-width: 50px;
+    max-height: 50px;
+    text-align: center;
+        display: flex;
+        align-items: center;      /* vertical centering */
+        justify-content: center;  /* horizontal centering */
+
+        line-height: 2;
+        text-decoration: none;
+
+
+    /*&:hover {*/
+    /*    background: #e5e5e5;*/
+    /*}*/
 }
 
 .table {
-    width: 95%;
-    margin: 20px auto;
-    border-collapse: collapse;
+    width: 90%;
     table-layout: fixed;
-    border: 1.5px solid var(--color-primary-blue);
-    background: #c6d9f4;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid var(--color-accent);
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--gradient-light);
+    margin: 3vh auto 5vw 5vw;
+    margin-inline: auto;
+}
 
-    th {
-        border: 1.5px solid #5276B2;
-        padding: 12px;
-        text-align: center;
-        /* background: #f1f5f9; */
-        background: #c6d9f4;
-        font-weight: 700;
-        font-size: 1rem;
-        border-bottom: 2.5px solid #5276B2;
-        vertical-align: top;
-    }
+.table th {
+    padding: 12px;
+    text-align: center;
+    vertical-align: top;
+    font-weight: 700;
+    font-size: 1rem;
+    background: var(--color-light-blue);
+    border-right: 1.5px solid var(--color-accent);
+    border-bottom: 2.5px solid var(--color-accent);
+}
 
-    td {
-        width: 14.2857%;
-        height: 50px;
-        vertical-align: top;
-        padding-left: 6px;
-        
-    }
-    
-   
+.table td {
+    width: 14.2857%;
+    height: 50px;
+    padding-left: 6px;
+    vertical-align: top;
+    border-right: 1.5px solid var(--color-accent);
+    border-bottom: 1.5px solid var(--color-accent);
+}
 
+/* the table's own outline already draws the outer edges */
+.table tr > :last-child {
+    border-right: none;
+}
 
+.table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .dates {
-    border: 1.5px solid #5276B2;
-    background: #FBF7F4;
+    background: var(--color-off-white);
     overflow: hidden;
 }
 
+.table td,
+.dates {
+    border-radius: 0;
+    border: 1px solid var(--color-accent);
+}
 .dates a {
     display: block;
     font-size: 0.8rem;
@@ -79,7 +122,7 @@ main{
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
-    color: var(--color-primary-blue);
+    color: rgb(82, 118, 178);
      
 }
 
@@ -87,52 +130,55 @@ main{
 
 .events h2 {
     padding:20px 15px 0px 15px;
-    color: var(--color-primary-blue);
+    color: rgb(82, 118, 178);
 }
 
 .events a {
     text-decoration: none;
-    color: var(--color-primary-blue);
-}
-
-.events-table{
-    height: 264px;
-   overflow-y: scroll; 
-   overflow-x: hidden; 
-
+    color: rgb(82, 118, 178);;
 }
 
 .events table {
     width: 95%;
     margin: 10px auto;
-    border-collapse: collapse;
+    border-collapse: separate;   /* collapse ignores border-radius */
+    border-spacing: 0;
+    border: 2px solid var(--color-primary-blue);
+    border-radius: 15px;
+    overflow: hidden;            /* clips the cell backgrounds to the corners */
     font-size: 1rem;
-    border: 1.5px solid #c6d9f4;
     background: var(--color-off-white);
-    color: var(--color-primary-blue);
-
-   
+    color: var(--color-accent);
 }
 
 .events th,
 .events td {
-    border: 1.5px solid var(--color-primary-blue);
-    /* border: 1.5px solid #cbd5e1; */
     padding: 8px;
     text-align: left;
     vertical-align: top;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
+    border-right: 1.5px solid var(--color-primary-blue);
+    border-bottom: 1.5px solid var(--color-primary-blue);
 }
 
 .events th {
     background: var(--color-light-blue);
     font-weight: 700;
-    border-bottom: 2.5px solid var(--color-primary-blue);
+    border-bottom-width: 2.5px;
+}
+
+/* the table's own outline already draws the outer edges */
+.events tr > :last-child {
+    border-right: none;
+}
+
+.events tbody tr:last-child td {
+    border-bottom: none;
 }
 
 
-.events td:nth-child(4) {
-    max-width: 200px;
-}
+/*.events td:nth-child(4) {*/
+/*    max-width: 200px;*/
+/*}*/

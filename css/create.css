@@ -1,41 +1,56 @@
 main {
-    margin: 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* horizontal centering (column layout) */
+    justify-content: center;   /* vertical centering (column layout) */
+    min-height: 100vh;
+    padding-bottom: 60px;      /* a bit taller than your nav bar */
+    box-sizing: border-box;
 }
 
-body {
-    background-color: var(--color-cream);
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 500px;
+    margin: 5vw;
+    padding: 20px 5vw;
+    border-radius: 5vh;
+    background: var(--gradient-light);
 }
 
+.websiteContainer {
+    padding: 0;
+}
+
+
+/* delete page */
 .delete-actions {
-
     gap: 12px;
     justify-content: center;
     margin-top: 16px;
 }
 
-.delete-actions button, .delete-actions a {
-    padding: 10px 20px;
-    background: white;
-    font: inherit;
-    cursor: pointer;
-
-    text-decoration: none;
-    color: inherit;
+.delete-actions button,
+.delete-actions a {
     display: flex;
     flex-direction: column;
-}
-
-.delete-actions a{
-    text-align: center;
-
-    border-radius: 12px;
-    border: 2px solid #4a6aa5;
+    padding: 10px 20px;
     font: inherit;
+    text-decoration: none;
+    color: inherit;
     background: white;
-    font: inherit;
     cursor: pointer;
-
 }
+
+.delete-actions a {
+    text-align: center;
+    border: 2px solid #4a6aa5;
+    border-radius: 12px;
+}
+
 .delete-actions .danger {
     background: #c0392b;
     border-color: #c0392b;
@@ -43,61 +58,81 @@ body {
 }
 
 
+/* form */
 form {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    margin-bottom: 2vh;
-    margin-top: 3vh;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    margin: 3vh auto 5vw;
+    padding: 15px 32px;
+    box-sizing: border-box;
+    border-radius: 5vh;
+    color: var(--color-accent);
+    text-align: center;
+    background: var(--gradient-light);
 }
 
- .prompt {
+/* each field wrapper fills the form so inputs, caption and button line up */
+form > div {
+    width: 100%;
+}
+
+.prompt {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vh;
+    width: 100%;
+}
+
+form div {
     margin-bottom: 2vh;
 }
 
 form div label {
     align-self: flex-start;
-    /*margin-bottom: 1vh;*/
-    color: var(--color-primary-blue);
+    color: var(--color-accent);
     font-family: var(--font-title);
 }
 
-form div {
-   margin-bottom: 2vh;
+/* inputs, caption and buttons share the same width and corners */
+input,
+textarea,
+button {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+}
+
+input,
+textarea {
+    border: 2px solid var(--color-primary-blue);
+    font: inherit;
 }
 
 input {
-    width: 90vw;
     height: 5vh;
-    border-radius: 10px;
-    border-color: var(--color-primary-blue);;
+    min-height: 40px;
+}
+
+#caption {
+    min-height: 5vh;
+    resize: none;              /* hide the manual resize handle */
+    overflow: hidden;          /* no scrollbar flicker while growing */
+    field-sizing: content;     /* grows with the text (not supported in Firefox yet) */
 }
 
 button {
-
-    width: 80vw;
-    height: 6vh;
-    background-color: var(--color-light-blue);
-    border-radius: 10px;
-    border: none;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-}
-
-p {
-    text-align: center;
-    font-style: italic;
-    font-size: .8rem;
-}
-
-h1 {
-    color: var(--color-primary-blue);;
-
-    text-align: center;
-    margin-top: 5vh;
+    height: 5vh;
+    min-height: 40px;
+    margin: 10px 0 0;
+    color: var(--color-accent);
+    font-weight: bold;
+    background: var(--gradient-main);
+    border: 1px solid rgba(103, 182, 255, 0.65);
+    border-width: 1px 2px 0;
 }
 
 button:active {
@@ -105,50 +140,54 @@ button:active {
     color: white;
 }
 
-.error {
-    margin-top: 0.5vh;
-    font-style: normal;
-    font-size: .7rem;
-    color: red;
-}
-
-a {
-
-    font-style: italic;
-    font-size: .8rem;
-    text-decoration: none;
-    color: var(--color-primary-blue);
-}
-
-section {
-    margin-top: 25vh;
-    display: flex;
-    flex-direction: column;
-    border: 3px solid var(--color-primary-blue);
-    border-radius: 10px;
-
-}
-
-
-main {
-    padding-bottom: 60px; /* a bit taller than your nav bar */
-}
 .image-picker {
-    /*display: none;*/
-
     max-width: 90vw;
-    /*margin-top: 10px;*/
     cursor: pointer;
 }
 
-.under{
+.under {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
 }
 
-.event{
-    padding-bottom:10px;
+
+/* text */
+h1 {
+    margin-top: 5vh;
+    color: var(--color-accent);
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+a {
+    font-style: italic;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--color-primary-blue);
+}
+
+.error {
+    margin-top: 0.5vh;
+    font-style: normal;
+    font-size: 0.7rem;
+    color: red;
+}
+
+
+/* event row */
+.event {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-bottom: 10px;
+    color: var(--color-accent);
 }
 
 .event span {
@@ -157,5 +196,6 @@ main {
 
 .event a {
     text-decoration: none;
-    color: #5276B2;
+    color: var(--color-accent);
 }
+
