@@ -129,8 +129,7 @@ section {
 
 }
 
-.event{
-    padding-bottom:10px;
+
 main {
     padding-bottom: 60px; /* a bit taller than your nav bar */
 }
@@ -148,16 +147,14 @@ main {
     align-self: flex-start;
 }
 
-.event {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 10px;
-    color: #5276B2;
+.event{
+    padding-bottom:10px;
 }
+
 .event span {
     font-size: 2rem;
 }
+
 .event a {
     text-decoration: none;
     color: #5276B2;

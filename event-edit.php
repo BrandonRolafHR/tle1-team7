@@ -79,9 +79,7 @@ if (isset($_POST['submit'])) {
 <body>
 
 <header>
-    
         <h1>Edit event</h1>
-
 </header>
 
 <div>
