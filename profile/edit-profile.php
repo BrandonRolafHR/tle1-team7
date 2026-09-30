@@ -63,6 +63,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <div class="websiteContainer">
     <div class="container">
         <header class="settings-header">
             <a href="settings.php">
@@ -94,6 +95,6 @@ if (isset($_POST['submit'])) {
             </form>
         </main>
     </div>
-    
+</div>
 </body>
 </html>

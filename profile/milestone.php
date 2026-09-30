@@ -24,6 +24,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <div class="websiteContainer">
     <header class="settings-header">
         <a href="profile.php">
             <span>↫</span>
@@ -43,5 +44,6 @@ if (!isset($_SESSION['loggedInUser'])) {
             </div>
         </section>
     </main>
+</div>
 </body>
 </html>
