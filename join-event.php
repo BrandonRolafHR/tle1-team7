@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['loggedInUser']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /calendar.php');
+    header('Location: /2026_2027/tle_t7/calendar.php');
     exit;
 }
 
@@ -32,5 +32,5 @@ mysqli_stmt_bind_param($stmt, 'ii', $userId, $eventId);
 mysqli_stmt_execute($stmt);
 
 mysqli_close($db);
-header("Location: /event.php?id=$eventId");
+header("Location: /2026_2027/tle_t7/event.php?id=$eventId");
 exit;

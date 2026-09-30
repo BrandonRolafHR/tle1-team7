@@ -68,7 +68,7 @@ if (isset($_POST['post'])) {
             mysqli_stmt_bind_param($stmt, "siiss", $milestone, $postId, $userId, $size, $created_at);
             mysqli_stmt_execute($stmt);
 
-            header('Location: /home.php');
+            header('Location: /2026_2027/tle_t7/home.php/');
             exit;
         }
     }

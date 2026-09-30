@@ -104,7 +104,7 @@ mysqli_close($db);
 <main >
     <div class="websiteContainer">
         <header>
-     <h1>Calendar</h1>
+     <h1 class="white">Calendar</h1>
         </header>
 <div class="agenda__header">
             <a class="agenda__button" href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>">←</a>
@@ -129,7 +129,7 @@ mysqli_close($db);
                 <td class="table dates">
                     <strong><?= $day ?></strong><br>
                   <?php foreach ($eventsByDate[$currentDate] ?? [] as $event): ?>
-                    <a href="/event.php?id=<?= (int)$event['id'] ?>">
+                    <a href="/2026_2027/tle_t7/event.php?id=<?= (int)$event['id'] ?>">
                         <?= htmlentities($event['username']) ?><br>
                         <?= htmlentities($event['name']) ?><br>
                     </a>
@@ -143,40 +143,36 @@ mysqli_close($db);
             </tr>
         </table>
 
-        <div>
-            <a href="discover-event.php">Join new events</a>
+        <div class="joinBox">
+            <a href="/2026_2027/tle_t7/discover-event.php" class="eventButton">Join new events</a>
         </div>
 
             <div class="events">
-            <h2>Alle events</h2>
-        <div class="events-table">
-            <table>
-                <thead>
+            <h2>All events</h2>
+       <div class="events-table">
+    <table>
+        <?php if (empty($allEvents)): ?>
+            <tr><td colspan="4">No new events to discover.</td></tr>
+        <?php else: ?>
+            <thead>
+            <tr>
+                <th>Event</th>
+                <th>Organizer</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($allEvents as $i => $allEvent): ?>
                 <tr>
-                    <th>Event</th>
-                    <th>Organizer</th>
-                    <th>Date</th>
+                    <td><a href="/2026_2027/tle_t7/event.php?id=<?= (int)$allEvent['id'] ?>"><?= htmlentities($allEvent['name']) ?></a></td>
+                    <td><?= htmlentities($allEvent['username']) ?></td>
+                    <td><?= htmlentities(date('d-m-Y H:i', strtotime($allEvent['date']))) ?></td>
                 </tr>
-                </thead>
-                <tfoot>
-                
-                </tfoot>
-                <tbody>
-                <!--        Loop through all albums in the collection-->
-                <?php foreach ($allEvents as $i => $allEvent) { ?>
-
-                    <tr>
-                        
-                        <td><a href="event.php?id=<?= htmlentities($allEvent['id']); ?>"><?= htmlentities($allEvent['name']); ?></a></td>
-                        <td><?= htmlentities($allEvent['username']); ?></td>
-                         <td><?= htmlentities(date('d-m-Y H:i', strtotime($allEvent['date']))); ?></td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-            </div>
-        </div>
-        </div>
+            <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+    </table>
+</div>
 </main>
 <?php require_once "components/footer.php"; ?>
 </body>

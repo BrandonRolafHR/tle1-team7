@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
 
         if (mysqli_stmt_execute($stmt)) {
             mysqli_close($db);
-            header('Location: /calendar.php');
+            header('Location: /2026_2027/tle_t7/calendar.php/');
             exit;
         }
     }

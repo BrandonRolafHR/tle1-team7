@@ -98,73 +98,64 @@ searchButton.addEventListener("click", function () {
 
 });
 
+
+// Friend options menu (dots) + delete friend
 document.addEventListener("click", function (event) {
-
     const moreOptions = event.target.closest(".more-options");
+    const deleteButton = event.target.closest(".delete-friend-button");
 
-    if (!moreOptions) {
+    // Open/close menu when clicking the dots
+    if (moreOptions) {
+        const actions = moreOptions.closest(".friend-actions");
+        let menu = actions.querySelector(".friend-options-menu");
+
+        // create the menu the first time it's needed
+        if (!menu) {
+            menu = document.createElement("div");
+            menu.classList.add("friend-options-menu");
+            menu.innerHTML = `
+                <button class="delete-friend-button">Delete friend</button>
+            `;
+            actions.appendChild(menu);
+        }
+
+        document.querySelectorAll(".friend-options-menu.open").forEach(m => {
+            if (m !== menu) m.classList.remove("open");
+        });
+
+        menu.classList.toggle("open");
         return;
     }
 
-    const friendId = moreOptions.dataset.userId;
-
-    // Verwijder eventueel een bestaand menu
-    const existingMenu = document.querySelector(".friend-options-menu");
-
-    if (existingMenu) {
-        existingMenu.remove();
-    }
-
-    // Maak menu
-    const menu = document.createElement("div");
-
-    menu.classList.add("friend-options-menu");
-
-    menu.innerHTML = `
-        <button class="delete-friend-button">
-            Delete friend
-        </button>
-    `;
-
-    // Plaats menu naast de 3 puntjes
-    moreOptions.parentElement.appendChild(menu);
-
-    // Delete knop
-    menu.querySelector(".delete-friend-button").addEventListener("click", function () {
+    // Delete friend
+    if (deleteButton) {
+        const actions = deleteButton.closest(".friend-actions");
+        const friendId = actions.querySelector(".more-options").dataset.userId;
 
         fetch("friendslist.php", {
             method: "POST",
-
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-
             body: "action=delete&friend_id=" + encodeURIComponent(friendId)
         })
-
             .then(response => response.json())
-
             .then(data => {
-
                 if (data.success) {
-
-                    // Verwijder de vriend uit de lijst
-                    const friendElement = moreOptions.closest(".friend");
-
-                    friendElement.remove();
-
+                    deleteButton.closest(".friend").remove();
                 } else {
-
                     console.error("Could not delete friend");
-
                 }
-
             })
-
             .catch(error => {
                 console.error("Delete friend error:", error);
             });
 
-    });
+        return;
+    }
 
+    // Click anywhere else: close all menus
+    document.querySelectorAll(".friend-options-menu.open").forEach(m => {
+        m.classList.remove("open");
+    });
 });

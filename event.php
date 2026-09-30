@@ -50,14 +50,14 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($event['name']) ?></title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/event.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/event.css">
 
 </head>
 <body>
     <?php require_once "components/nav.php"; ?>
     <header>
-            <a href="/calendar.php">
+            <a href="/2026_2027/tle_t7/calendar.php/">
                 <span>↫</span>
             </a>
             <h1><?= htmlspecialchars($event['name']) ?></h1>
@@ -69,7 +69,7 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
     <p>Description:<br><?= $event['description'] ?></p>
     </div>
 
-    <form action="/join-event.php" method="POST">
+    <form action="/2026_2027/tle_t7/join-event.php" method="POST">
             <input type="hidden" name="event_id" value="<?= (int)$event['id'] ?>">
             <?php if ($isJoined): ?>
                 <button class="button" type="submit" name="action" value="leave">Afmelden</button>
@@ -90,8 +90,8 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
         <?php endif; ?>
 
         <?php if ($isOwner): ?>
-           <br> <a class="button" href="event-delete.php?id=<?= (int)$event['id'] ?>">Delete</a>
-            <a class="button" href="event-edit.php?id=<?= (int)$event['id'] ?>">edit</a>
+           <br> <a class="button" href="/2026_2027/tle_t7/event-delete.php?id=<?= (int)$event['id'] ?>">Delete</a>
+            <a class="button" href="/2026_2027/tle_t7/event-edit.php?id=<?= (int)$event['id'] ?>">edit</a>
         <?php endif; ?>
     </main>
 

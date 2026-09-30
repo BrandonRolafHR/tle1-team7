@@ -17,7 +17,13 @@ if (isset($_POST['register'])) {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'Please enter a valid e-mail address';
     }
-    if ($username === '') $errors['username'] = 'Username is required';
+     if ($username === '') {
+        $errors['username'] = 'Username is required';
+    } elseif (mb_strlen($username) < 3) {
+        $errors['username'] = 'Username must be at least 3 characters';
+    } elseif (mb_strlen($username) > 20) {
+        $errors['username'] = 'Username can be at most 20 characters';
+    }
     if ($birthdate === '') {
         $errors['birthdate'] = 'Birthdate is required';
     } else {
@@ -46,6 +52,9 @@ if (isset($_POST['register'])) {
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
+        if (mysqli_num_rows($result) > 0) {
+            $errors['username'] = 'Username is already taken';
+        }
     }
 
     //if all is good, insert user
@@ -96,7 +105,7 @@ if (isset($_POST['register'])) {
             </div>
             <div>
                 <label>Username</label>
-                <input type="text" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>">
+                <input type="text" name="username" maxlength="20" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>">
                 <?php if (isset($errors['username'])) echo "<p class='error'>{$errors['username']}</p>"; ?>
             </div>
             <div>
