@@ -75,7 +75,7 @@ searchDropdown.addEventListener("click", function (event) {
 
                 event.target.textContent = "Added";
                 event.target.disabled = true;
-
+                location.reload();
             }
 
         })

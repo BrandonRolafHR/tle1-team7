@@ -13,6 +13,8 @@ if (!isset($_SESSION['loggedInUser'])) {
     exit;
 }
 
+$userId = (int)$_SESSION['loggedInUser']['id'];
+
 $search = trim($_GET['q'] ?? '');
 
 if ($search === '') {
@@ -32,7 +34,6 @@ $sql = "
 $stmt = $db->prepare($sql);
 
 $searchTerm = "%" . $search . "%";
-$userId = $_SESSION['loggedInUser'];
 
 $stmt->bind_param("si", $searchTerm, $userId);
 
