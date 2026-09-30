@@ -41,6 +41,12 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_bind_param($stmt, 'issss', $userId, $name, $date, $description, $visible);
 
         if (mysqli_stmt_execute($stmt)) {
+            $newEventId = mysqli_insert_id($db);
+             $stmt2 = mysqli_prepare($db,
+            "INSERT INTO user_event (user_id, event_id, status) VALUES (?, ?, 'owner')");
+            mysqli_stmt_bind_param($stmt2, 'ii', $userId, $newEventId);
+            mysqli_stmt_execute($stmt2);
+
             mysqli_close($db);
             header('Location: /calendar.php');
             exit;

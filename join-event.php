@@ -14,9 +14,15 @@ $userId  = (int)$_SESSION['loggedInUser']['id'];
 $eventId = (int)($_POST['event_id'] ?? 0);
 
 // Mag deze gebruiker dit event zien? Zo niet: stoppen.
-if (!getVisibleEvent($db, $eventId, $userId)) {
+$event = getVisibleEvent($db, $eventId, $userId);
+if (!$event) {
     http_response_code(403);
     exit('Geen toegang tot dit event.');
+}
+
+if ((int)$event['user_id'] === $userId) {
+    header("Location: /event.php?id=$eventId");
+    exit;
 }
 
 // Direct joinen/verlaten, zonder dat iemand dit hoeft goed te keuren
@@ -32,5 +38,8 @@ mysqli_stmt_bind_param($stmt, 'ii', $userId, $eventId);
 mysqli_stmt_execute($stmt);
 
 mysqli_close($db);
-header("Location: /event.php?id=$eventId");
+
+$redirect = $_POST['redirect'] ?? "/event.php?id=$eventId";
+header("Location: $redirect");
+
 exit;
