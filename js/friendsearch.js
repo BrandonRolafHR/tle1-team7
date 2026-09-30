@@ -29,14 +29,15 @@ searchInput.addEventListener("input", function () {
 
                 userElement.classList.add("search-result");
 
-                userElement.textContent = user.username;
+                userElement.innerHTML = `
+                    <span>${user.username}</span>
 
-                userElement.addEventListener("click", function () {
-                    searchInput.value = user.username;
-
-                    searchDropdown.innerHTML = "";
-                    searchDropdown.style.display = "none";
-                });
+                    <button 
+                        class="add-friend-button"
+                        data-user-id="${user.id}">
+                        Add
+                    </button>
+                `;
 
                 searchDropdown.appendChild(userElement);
             });
@@ -48,6 +49,43 @@ searchInput.addEventListener("input", function () {
         });
 });
 
+
+// Add friend
+searchDropdown.addEventListener("click", function (event) {
+
+    if (!event.target.classList.contains("add-friend-button")) {
+        return;
+    }
+
+    const friendId = event.target.dataset.userId;
+
+    fetch("friendslist.php", {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+
+        body: "action=add&friend_id=" + encodeURIComponent(friendId)
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            if (data.success) {
+
+                event.target.textContent = "Added";
+                event.target.disabled = true;
+
+            }
+
+        })
+        .catch(error => {
+            console.error("Add friend error:", error);
+        });
+
+});
+
+
 searchButton.addEventListener("click", function () {
 
     const search = searchInput.value.trim();
@@ -57,5 +95,76 @@ searchButton.addEventListener("click", function () {
     }
 
     console.log("Searching for:", search);
+
+});
+
+document.addEventListener("click", function (event) {
+
+    const moreOptions = event.target.closest(".more-options");
+
+    if (!moreOptions) {
+        return;
+    }
+
+    const friendId = moreOptions.dataset.userId;
+
+    // Verwijder eventueel een bestaand menu
+    const existingMenu = document.querySelector(".friend-options-menu");
+
+    if (existingMenu) {
+        existingMenu.remove();
+    }
+
+    // Maak menu
+    const menu = document.createElement("div");
+
+    menu.classList.add("friend-options-menu");
+
+    menu.innerHTML = `
+        <button class="delete-friend-button">
+            Delete friend
+        </button>
+    `;
+
+    // Plaats menu naast de 3 puntjes
+    moreOptions.parentElement.appendChild(menu);
+
+    // Delete knop
+    menu.querySelector(".delete-friend-button").addEventListener("click", function () {
+
+        fetch("friendslist.php", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+
+            body: "action=delete&friend_id=" + encodeURIComponent(friendId)
+        })
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                if (data.success) {
+
+                    // Verwijder de vriend uit de lijst
+                    const friendElement = moreOptions.closest(".friend");
+
+                    friendElement.remove();
+
+                } else {
+
+                    console.error("Could not delete friend");
+
+                }
+
+            })
+
+            .catch(error => {
+                console.error("Delete friend error:", error);
+            });
+
+    });
 
 });

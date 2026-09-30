@@ -40,4 +40,34 @@ class Friends
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function addFriend($userId, $friendId)
+    {
+        $sql = "
+            INSERT INTO friends (user_id, friend_id)
+            VALUES (?, ?)
+        ";
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->bind_param("ii", $userId, $friendId);
+
+        return $stmt->execute();
+    }
+
+    public function deleteFriend($userId, $friendId)
+    {
+        $sql = "
+            DELETE FROM friends
+            WHERE user_id = ?
+            AND friend_id = ?
+        ";
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->bind_param("ii", $userId, $friendId);
+
+        return $stmt->execute();
+    }
+
 }
