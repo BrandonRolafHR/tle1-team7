@@ -31,6 +31,7 @@ if (!isset($_SESSION['loggedInUser'])) {
 </head>
 <?php $activePage = 'profile'; ?>
 <body>
+<div class="websiteContainer">
     <header class="profile-header">
         <h1><?= $user['username']?>'s journey</h1>
         <a href="settings.php">
@@ -53,6 +54,7 @@ if (!isset($_SESSION['loggedInUser'])) {
 
     </section>
     </main>
+
     <?php require_once "../components/footer.php" ?>
 </body>
 </html>

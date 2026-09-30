@@ -143,8 +143,8 @@ mysqli_close($db);
             </tr>
         </table>
 
-        <div>
-            <a href="discover-event.php">Join new events</a>
+        <div class="joinBox">
+            <a href="discover-event.php" class="eventButton">Join new events</a>
         </div>
 
             <div class="events">

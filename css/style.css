@@ -130,108 +130,89 @@ body {
 
 
 main {
-    background-color: var(--color-cream);
+    /*background-color: var(--color-);*/
     padding-bottom: 60px;
 }
 
 form {
-    background-color: var(--color-cream);
-/* actieve pagina highlight */
-footer .item.active {
-    background: var(--gradient-main);
+    /*background-color: var(--color-cream);*/
+    /* actieve pagina highlight */
 }
+    footer .item.active {
+        background: var(--gradient-main);
+    }
 
-.profile-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px;
-    cursor: pointer;
-}
+    .profile-header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+    }
 
-.profile-header h1 {
-    color: var(--color-accent);
-}
+    .profile-header h1 {
+        color: var(--color-accent);
+    }
 
-.settings-link {
-    height: 35px;
-    width: auto;
-}
+    .settings-link {
+        height: 35px;
+        width: auto;
+    }
 
-.settings-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 10px;
-    color: var(--color-accent);
-}
+    .settings-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        color: var(--color-accent);
+    }
 
-.settings-header span {
-    font-size: 2rem;
-}
+    .settings-header span {
+        font-size: 2rem;
+    }
 
-.settings-header a {
-    text-decoration: none;
-    color: var(--color-accent);
-}
+    .settings-header a {
+        text-decoration: none;
+        color: var(--color-accent);
+    }
 
-/* NOTE: the bare "h2" here applies to every h2 on the site, not just
-   the ones inside .user-info. Change to ".user-info h2" if that's not intended. */
-.user-info p,
-h2 {
-    padding-top: 5px;
-    /*padding-left: 10%;*/
-    color: var(--color-accent);
-}
 
-.user-info a {
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    font-size: 1.25rem;
-    text-decoration: none;
-    color: #fff;
-}
+    /* NOTE: the bare "h2" here applies to every h2 on the site, not just
+       the ones inside .user-info. Change to ".user-info h2" if that's not intended. */
 
-.user-info div {
-    display: flex;
-    justify-content: center;
-    width: 330px;
-    padding: 5px 10px;
-    border: 2px solid var(--color-accent);
-    border-radius: 10px;
-    background: var(--color-accent);
-}
+    .user-info p,
+    h2 {
+        padding-top: 5px;
+        /*padding-left: 10%;*/
+        color: var(--color-accent);
+    }
 
-#preview-img {
-    width: 150px;
-    height: 100%;
-}
+    .user-info a {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        font-size: 1.25rem;
+        text-decoration: none;
+        color: #fff;
+    }
 
-    /*milestones css*/
-/* .milestone-path {
-    width: 100%;
-    height: 450px;
-    overflow-x: hidden;  
-    overflow-y: scroll;   
-    white-space: nowrap;  
-}
+    .user-info div {
+        display: flex;
+        justify-content: center;
+        width: 330px;
+        padding: 5px 10px;
+        border: 2px solid var(--color-accent);
+        border-radius: 10px;
+        background: var(--color-accent);
+    }
 
-.milestone-img {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
+    #preview-img {
+        width: 150px;
+        height: 100%;
+    }
 
-.milestone-img:nth-child(2) {
-    position: relative;
-    z-index: 5;
-    width: 130px;
-    margin-top: -75px;    /* overlap */
-    padding-left: 230px;
-} */
 
-.bg-image {
+    .bg-image {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -247,117 +228,157 @@ h2 {
     }
 
 
-.large-milestone {
-    width: 130px;
-    height: 100%;
-}
+    .large-milestone {
+        width: 130px;
+        height: 100%;
+    }
 
-.medium-milestone {
-    width: 100px;
-    height: 100%;
-}
+    .medium-milestone {
+        width: 100px;
+        height: 100%;
+    }
 
-.small-milestone {
-    width: 70px;
-    height: 100%;
-}
+    .small-milestone {
+        width: 70px;
+        height: 100%;
+    }
 
-.milestone-overzicht {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 420px;
-    overflow-x: hidden;  
-    overflow-y: scroll;   
-    white-space: nowrap;
-}
-
-.milestone-post {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    background-color: #FBF7F4;
-    border-radius: 10px;
-    margin: 20px;
-}
-
-.milestone-item {
-    cursor: pointer;
-}
-
-.post-image {
-    height: 100%s;
-    width: 333.33px;
-    border-radius: 10px;
-}
-
-.edit-profile {
-    form {
+    .milestone-overzicht {
         display: flex;
         flex-direction: column;
-        padding: 10px;
-        color: #5276B2;
-        input {
-            border-radius: 5px;
-            border: 1px solid #F7EBE0;
-            background: #FBF7F4;
-        }
-        textarea {
-            border-radius: 5px;
-            border: 1px solid #F7EBE0;
-            background: #FBF7F4;
-        }
-    .form-group {
+        align-items: center;
+        width: 100%;
+        height: 420px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        white-space: nowrap;
+    }
+
+    .milestone-post {
         display: flex;
-        flex-direction: row;
-        gap: 20px;
-        padding-bottom: 10px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        background-color: #FBF7F4;
+        border-radius: 10px;
+        margin: 20px;
     }
-    button {
-        background: #5276B2;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
+
+    .milestone-item {
         cursor: pointer;
-        margin-top: 10px;
-        font-size: 1rem;
     }
-}
-}
-/* clickable */
-a, button, summary, label, select, .item,
-[role="button"], input[type="submit"] {
-    cursor: var(--cur-link), pointer;
-}
 
-/* help */
-[title], .help {
-    cursor: var(--cur-help), help;
-}
+    .post-image {
+        height: 100%;
+        width: 333.33px;
+        border-radius: 10px;
+    }
 
-/* move */
-.draggable, [draggable="true"] {
-    cursor: var(--cur-move), move;
-}
+    .edit-profile {
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            color: #5276B2;
 
-/* disabled / not allowed */
-:disabled, [aria-disabled="true"], .disabled {
-    cursor: var(--cur-unavailable), not-allowed;
-}
+            input {
+                border-radius: 5px;
+                border: 1px solid #F7EBE0;
+                background: #FBF7F4;
+            }
 
-/* resizing */
-.resize-h  { cursor: var(--cur-horizontal), ew-resize; }
-.resize-v  { cursor: var(--cur-vertical),   ns-resize; }
-.resize-d1 { cursor: var(--cur-diag1),      nwse-resize; }
-.resize-d2 { cursor: var(--cur-diag2),      nesw-resize; }
+            textarea {
+                border-radius: 5px;
+                border: 1px solid #F7EBE0;
+                background: #FBF7F4;
+            }
 
-/* extras: add these classes where you want them */
-.alt-select  { cursor: var(--cur-alternate),   alias; }
-.handwriting { cursor: var(--cur-handwriting), crosshair; }
+            .form-group {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                padding-bottom: 10px;
+            }
 
-/* busy / working (.ani files don't work in browsers) */
-.busy    { cursor: wait; }
-.working { cursor: progress; }
+            button {
+                background: #5276B2;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    /* clickable */
+
+    a, button, summary, label, select, .item,
+    [role="button"], input[type="submit"] {
+        cursor: var(--cur-link), pointer;
+    }
+
+    /* help */
+
+    [title], .help {
+        cursor: var(--cur-help), help;
+    }
+
+    /* move */
+
+    .draggable, [draggable="true"] {
+        cursor: var(--cur-move), move;
+    }
+
+    /* disabled / not allowed */
+
+    :disabled, [aria-disabled="true"], .disabled {
+        cursor: var(--cur-unavailable), not-allowed;
+    }
+
+    /* resizing */
+
+    .resize-h {
+        cursor: var(--cur-horizontal), ew-resize;
+    }
+
+    .resize-v {
+        cursor: var(--cur-vertical), ns-resize;
+    }
+
+    .resize-d1 {
+        cursor: var(--cur-diag1), nwse-resize;
+    }
+
+    .resize-d2 {
+        cursor: var(--cur-diag2), nesw-resize;
+    }
+
+    /* extras: add these classes where you want them */
+
+    .alt-select {
+        cursor: var(--cur-alternate), alias;
+    }
+
+    .handwriting {
+        cursor: var(--cur-handwriting), crosshair;
+    }
+
+    /* busy / working (.ani files don't work in browsers) */
+
+    .busy {
+        cursor: wait;
+    }
+
+    .working {
+        cursor: progress;
+    }
+
+
+    .settings-link {
+        height: 35px;
+        width: auto;
+    }
+
