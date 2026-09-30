@@ -102,7 +102,7 @@ if (isset($_POST['post'])) {
 <body>
 <div class="websiteContainer">
 <main>
-    <h1>Add post</h1>
+    <h1 class="white">Add post</h1>
     <form method="post" enctype="multipart/form-data">
         <div>
             <label>Title</label>

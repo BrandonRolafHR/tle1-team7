@@ -172,6 +172,7 @@ div.friend-actions span {
     height: auto;
     object-fit: contain;
     display: block;
+    max-width: 30px;
 }
 
 div.friend-actions {
