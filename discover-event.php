@@ -58,7 +58,6 @@ mysqli_close($db);
             <?php if (empty($discoverEvents)): ?>
                 <tr><td colspan="4">Geen nieuwe events om te ontdekken.</td></tr>
             <?php else: ?>
-                <?php foreach ($discoverEvents as $event): ?>
                 <thead>
                     <tr>
                         <th>Event</th>
@@ -68,6 +67,7 @@ mysqli_close($db);
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($discoverEvents as $event): ?>
                     <tr>
                         <td><a href="event.php?id=<?= (int)$event['id'] ?>"><?= htmlentities($event['name']) ?></a></td>
                         <td><?= htmlentities($event['username']) ?></td>

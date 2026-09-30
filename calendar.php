@@ -149,34 +149,30 @@ mysqli_close($db);
 
             <div class="events">
             <h2>Alle events</h2>
-        <div class="events-table">
-            <table>
-                <thead>
+       <div class="events-table">
+    <table>
+        <?php if (empty($allEvents)): ?>
+            <tr><td colspan="4">Geen nieuwe events om te ontdekken.</td></tr>
+        <?php else: ?>
+            <thead>
+            <tr>
+                <th>Event</th>
+                <th>Organizer</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($allEvents as $i => $allEvent): ?>
                 <tr>
-                    <th>Event</th>
-                    <th>Organizer</th>
-                    <th>Date</th>
+                    <td><a href="event.php?id=<?= (int)$allEvent['id'] ?>"><?= htmlentities($allEvent['name']) ?></a></td>
+                    <td><?= htmlentities($allEvent['username']) ?></td>
+                    <td><?= htmlentities(date('d-m-Y H:i', strtotime($allEvent['date']))) ?></td>
                 </tr>
-                </thead>
-                <tfoot>
-                
-                </tfoot>
-                <tbody>
-                <!--        Loop through all albums in the collection-->
-                <?php foreach ($allEvents as $i => $allEvent) { ?>
-
-                    <tr>
-                        
-                        <td><a href="event.php?id=<?= htmlentities($allEvent['id']); ?>"><?= htmlentities($allEvent['name']); ?></a></td>
-                        <td><?= htmlentities($allEvent['username']); ?></td>
-                         <td><?= htmlentities(date('d-m-Y H:i', strtotime($allEvent['date']))); ?></td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-            </div>
-        </div>
-        </div>
+            <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+    </table>
+</div>
 </main>
 <?php require_once "components/footer.php"; ?>
 </body>
