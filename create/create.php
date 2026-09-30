@@ -43,12 +43,12 @@ if (!isset($_SESSION['loggedInUser'])) {
 
 <script>
     document.querySelector('.add-post').addEventListener('click', () => {
-        window.location.href = '/2026_2027/tle_t7//create/add-post.php';
+        window.location.href = '/2026_2027/tle_t7/create/add-post.php';
     });
     document.querySelector('.add-event').addEventListener('click', () => {
-        window.location.href = '/2026_2027/tle_t7//create/add-event.php';
+        window.location.href = '/2026_2027/tle_t7/create/add-event.php';
     });
     document.querySelector('.join-event').addEventListener('click', () => {
-        window.location.href = '/2026_2027/tle_t7/discover-event.php';
+        window.location.href = '/2026_2027/tle_t7/discover-event.php/';
     });
 </script>
