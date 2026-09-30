@@ -43,20 +43,19 @@ mysqli_close($db);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ontdekken</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/calendar.css">
+    <link rel="stylesheet" href="/css/create.css">
 </head>
 <?php $activePage = 'discover'; ?>
 <body>
-<?php require_once "components/nav.php"; ?>
-
+<div class="websiteContainer">
 <main>
-    <h1>Evenementen ontdekken</h1>
+    <h1 class="white">Discover events</h1>
 
-    <div class="events-table">
-        <table>
+    <div>
+        <table class="table">
             
             <?php if (empty($discoverEvents)): ?>
-                <tr><td colspan="4">Geen nieuwe events om te ontdekken.</td></tr>
+                <tr><td colspan="4">No new events to discover.</td></tr>
             <?php else: ?>
                 <thead>
                     <tr>
@@ -73,9 +72,9 @@ mysqli_close($db);
                         <td><?= htmlentities($event['username']) ?></td>
                         <td><?= htmlentities(date('d-m-Y H:i', strtotime($event['date']))) ?></td>
                         <td>
-                            <form action="/join-event.php" method="POST">
+                            <form action="/join-event.php" method="POST" class="noForm">
                                 <input type="hidden" name="event_id" value="<?= (int)$event['id'] ?>">
-                                <button class="button" type="submit" name="action" value="join">Deelnemen</button>
+                                <button class="noButton" type="submit" name="action" value="join">Join</button>
                             </form>
                         </td>
                     </tr>
@@ -85,6 +84,7 @@ mysqli_close($db);
         </table>
     </div>
 </main>
+</div>
 <?php require_once "components/footer.php"; ?>
 </body>
 </html>
