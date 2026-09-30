@@ -5,10 +5,9 @@ require_once 'friends.php';
 
 $friends = new Friends($db);
 
-$userId = $_SESSION['loggedInUser'];
+$userId = (int)$_SESSION['loggedInUser']['id'];
 
-
-// Add / delete friend
+// Add vrienden
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     header('Content-Type: application/json');
@@ -20,7 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $success = $friends->addFriend($userId, $friendId);
 
-    } elseif ($action === 'delete') {
+    }
+    // Delete vrienden
+    elseif ($action === 'delete') {
 
         $success = $friends->deleteFriend($userId, $friendId);
 
