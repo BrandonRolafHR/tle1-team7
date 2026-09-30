@@ -73,8 +73,7 @@ searchDropdown.addEventListener("click", function (event) {
 
             if (data.success) {
 
-                event.target.textContent = "Added";
-                event.target.disabled = true;
+                location.reload();
 
             }
 
@@ -147,8 +146,6 @@ document.addEventListener("click", function (event) {
             .then(data => {
 
                 if (data.success) {
-
-                    // Verwijder de vriend uit de lijst
                     const friendElement = moreOptions.closest(".friend");
 
                     friendElement.remove();
