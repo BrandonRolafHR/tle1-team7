@@ -17,7 +17,7 @@
     --color-primary-blue: #54a0d8;
     --color-blue: #e9f6f6;
     --color-off-white: rgba(251, 247, 244, 0.7);
-    --color-accent: #5276B2;
+    --color-accent: #4a6fab;
 
     /* gradients */
     --gradient-main: linear-gradient(to bottom, rgba(178, 225, 255, 0.8) 0%, rgba(102, 182, 252, 0.65) 100%);
@@ -39,6 +39,11 @@
 
 body.dyslexia-mode {
     --font-body: 'opendyslexic', Arial, sans-serif;
+}
+
+
+.white{
+    color: #ffffff;
 }
 
 * {
@@ -151,7 +156,7 @@ form {
     }
 
     .profile-header h1 {
-        color: var(--color-accent);
+        /*color: var(--color-accent);*/
     }
 
     .settings-link {
@@ -183,8 +188,8 @@ form {
     .user-info p,
     h2 {
         padding-top: 5px;
-        /*padding-left: 10%;*/
-        color: var(--color-accent);
+        padding-left: 5vw;
+        /*color: var(--color-accent);*/
     }
 
     .user-info a {
@@ -217,9 +222,10 @@ form {
         align-items: center;
         justify-content: center;
         font-size: 1.25rem;
-        background-image: url("../images/standard-header-bg.jpg");
-        background-size: cover;
-        background-position: center;
+        /*background-image: url("../images/standard-header-bg.jpg");*/
+        /*background-size: cover;*/
+        /*background-position: center;*/
+        background: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
         width: auto;
         height: 200px;
         border-radius: 10px;
@@ -382,3 +388,6 @@ form {
         width: auto;
     }
 
+.white{
+    color: #ffffff;
+}

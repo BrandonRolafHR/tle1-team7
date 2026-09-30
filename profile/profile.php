@@ -33,7 +33,7 @@ if (!isset($_SESSION['loggedInUser'])) {
 <body>
 <div class="websiteContainer">
     <header class="profile-header">
-        <h1><?= $user['username']?>'s journey</h1>
+        <h1 class="white"><?= $user['username']?>'s journey</h1>
         <a href="settings.php">
             <img src="../images/settings-icon.png" alt="icon for settings" class="settings-link">
         </a>
@@ -42,7 +42,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     <main>
         <div class="bg-image"><?= $user['bio'] ?></div>
         <section class="milestones">
-        <h2>Milestones</h2>
+        <h2 class="white">Milestones</h2>
         <div class="milestone-overzicht">
             <?php foreach ($milestones as $milestone): ?>
                 <div class="milestone-item" data-id="<?= $milestone['post_id'] ?>">

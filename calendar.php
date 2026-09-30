@@ -104,7 +104,7 @@ mysqli_close($db);
 <main >
     <div class="websiteContainer">
         <header>
-     <h1>Calendar</h1>
+     <h1 class="white">Calendar</h1>
         </header>
 <div class="agenda__header">
             <a class="agenda__button" href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>">←</a>

@@ -40,24 +40,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $friendList = $friends->getFriends($userId);
 ?>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/friends.css">
 
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+              name="viewport">
+        <meta content="ie=edge" http-equiv="X-UA-Compatible">
+        <title></title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/friends.css">
+    </head>
+<?php $activePage = 'friends'; ?>
+    <body>
+    <div class="websiteContainer">
     <div class="upper-section-friends">
-        <h1>Friends</h1>
-
+        <h1 class="white">Friends</h1>
+    </div>
+        <section>
         <div class="search-container">
-
             <div class="search-input">
                 <input type="text" id="friend-search" placeholder="Search username...">
-
                 <button id="search-button">Search</button>
             </div>
-
+        </section>
             <div id="search-dropdown"></div>
 
-        </div>
-    </div>
+
 
     <div class="friends-list">
 
@@ -98,9 +107,10 @@ $friendList = $friends->getFriends($userId);
         <?php endforeach; ?>
 
     </div>
-
+</div>
     </main>
 
     <script src="js/friendsearch.js"></script>
 
 <?php require_once "components/footer.php" ?>
+    </body>
