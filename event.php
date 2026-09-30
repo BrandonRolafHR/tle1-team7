@@ -69,7 +69,8 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
     <p>Description:<br><?= $event['description'] ?></p>
     </div>
 
-    <form action="/join-event.php" method="POST">
+    <?php if (!$isOwner): ?>
+        <form action="/join-event.php" method="POST">
             <input type="hidden" name="event_id" value="<?= (int)$event['id'] ?>">
             <?php if ($isJoined): ?>
                 <button class="button" type="submit" name="action" value="leave">Afmelden</button>
@@ -77,7 +78,8 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
                 <button class="button" type="submit" name="action" value="join">Deelnemen</button>
             <?php endif; ?>
         </form>
-
+    <?php endif; ?>
+    
         <h2>Deelnemers</h2>
         <?php if (empty($participants)): ?>
            <br> <p>Nog niemand.</p>
