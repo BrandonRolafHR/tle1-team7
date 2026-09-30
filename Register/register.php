@@ -83,6 +83,7 @@ if (isset($_POST['register'])) {
     <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
+<div class="websiteContainer">
 <main>
     <section>
         <h1>Create an Account</h1>
@@ -119,5 +120,6 @@ if (isset($_POST['register'])) {
 
         <p>Already have an account? <a href="login.php">Login here</a></p>
     </section>
+    </div>
 </main>
 </body>

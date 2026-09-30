@@ -61,6 +61,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 <main>
+    <div class="websiteContainer">
     <h1>login</h1>
     <section>
         <form method="post">
@@ -80,6 +81,7 @@ if (isset($_POST['login'])) {
     <div>
         <p>Dont have an account? <a href="register.php">Register here</a></p>
 
+    </div>
     </div>
 </main>
 

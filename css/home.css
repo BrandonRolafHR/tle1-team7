@@ -1,36 +1,70 @@
-div.post-container {
+header {
+    padding: 20px 5vw;
+    padding-bottom: 0;
+    color: rgb(82, 118, 178);
+}
+
+options {
     display: flex;
+}
+
+
+section {
+    padding-bottom: 60px; /* a bit taller than your nav bar */
+}
+
+
+div.post-container {
+    display: none;
     flex-direction: column;
-    background-color: #FBF7F4;
+    background: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
+    padding: 20px 5vw;
+    position: relative;
+    margin: 0 0 20px 0;
+    border-radius: 5vh 5vh 5vh 5vh;
+    /*min-width: 300px;*/
+    /*border-right: 2px solid rgba(156, 211, 218, 0.8);*/
+    /*border-left: 2px solid #9CD3DACC;*/
+    /*border-top: 2px solid #9CD3DACC;*/
+    margin: 5vw;
+    /*box-shadow: rgba(0,0,0,.3) 0 14px 28px,rgba(0,0,0,.3) 0 10px*/
 }
 
 div.profile-container {
     display: flex;
     align-items: center;
-    padding: 20px 5vw 0 5vw;
+
+
 }
 
 .pfp {
-    width: 100px;
-    height: 100px;
+    width: 20vw;
+    height: 20vw;
+    max-width: 90px;
+    max-height: 90px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 h3 {
     padding: 0 10px;
+    color: rgb(82, 118, 178);
 }
 
 div.post-content {
     display: flex;
     flex-direction: column;
-    margin: 0 5vw;
 }
 
 .post-image {
-    width: 90vw;
+    display: block;
+    width: 100%;
     height: auto;
-    align-self: center;
+    border-radius: 2vh;   /* optional */
+    margin-top: 3vh;
+    /*border-right: 2px solid rgba(131, 208, 218, 0.8);*/
+    /*border-left: 2px solid #83D0DACC;*/
+    /*border-top: 2px solid #83D0DACC;*/
 }
 
 h2 {
@@ -42,7 +76,92 @@ p {
 }
 
 .comment-container {
-    margin: 0 5vw;
     position: relative;
     top: 16px;
 }
+
+.open-button {
+    display: flex;
+    flex-direction: column;
+    margin: 5vw;
+    /*min-width: 300px;*/
+}
+
+.open-post {
+    background: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
+    border: none;
+    color: rgb(82, 118, 178);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5vh 5vh 5vh 5vh;
+
+    /*border-right: 2px solid rgba(156, 211, 218, 0.8);*/
+    /*border-left: 2px solid #9CD3DACC;*/
+    /*border-top: 2px solid #9CD3DACC;*/
+}
+
+.call-to-action {
+    font-weight: bold;
+    background: linear-gradient(to bottom, rgba(178, 225, 255, 0.8) 0%, rgba(102, 182, 252, 0.65) 100%);
+    margin: 10px 0 0 0;
+    border-radius: 10px;
+    border-right: 2px solid rgba(128, 195, 255, 0.65);
+    border-left: 2px solid rgba(136, 197, 255, 0.65);
+    border-top: 1px solid rgba(125, 193, 255, 0.65);
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20; /* above the menu (menu popup is 10) */
+}
+.close-post {
+    background-color: rgba(251, 247, 244, 0);
+    border: none;
+    font-size: 20px;
+}
+
+
+.post-menu {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content; /* only as wide as the dots, so it can't cover the X */
+}
+
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    padding: 4px 10px;
+}
+
+
+.menu-popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;      /* was right: 0 */
+    right: auto;
+    background: white;
+    border: 2px solid var(--color-primary-blue);
+    border-radius: 12px;
+    padding: 6px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.menu-delete {
+    display: block;
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    padding: 8px 16px;
+    white-space: nowrap;
+}
+
+

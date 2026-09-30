@@ -16,7 +16,7 @@ if (isset($_POST['post'])) {
     $milestone = trim($_POST['milestone'] ?? '');
     $size = trim($_POST['size'] ?? '');
 
-    // validation of form
+    // validation of form (location is optional)
     if ($title === '') $errors['title'] = 'Title is required';
     if ($caption === '') $errors['caption'] = 'Caption is required';
     if ($location === '') $errors['location'] = 'Location is required';
@@ -53,6 +53,9 @@ if (isset($_POST['post'])) {
         if (empty($errors)) {
             $userId = $_SESSION['loggedInUser']['id'];
 
+            // store NULL instead of an empty string when no location is given
+            $location = $location === '' ? null : $location;
+
             $stmt = mysqli_prepare($db, "INSERT INTO posts (user_id, title, image, text, location) VALUES (?, ?, ?, ?, ?)");
             mysqli_stmt_bind_param($stmt, "issss", $userId, $title, $imageData, $caption, $location);
             mysqli_stmt_execute($stmt);
@@ -83,8 +86,21 @@ if (isset($_POST['post'])) {
     <link rel="icon" type="image/x-icon" href="/images/favicon.gif">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/create.css">
+    <style>
+        /* "Choose image" button (move this into create.css if you prefer) */
+        .pick-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 2px solid #4a6aa5;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
+<?php $activePage = 'add'; ?>
 <body>
+<div class="websiteContainer">
 <main>
     <h1>Add post</h1>
     <form method="post" enctype="multipart/form-data">
@@ -93,20 +109,22 @@ if (isset($_POST['post'])) {
             <input type="text" name="title" value="<?= htmlspecialchars($_POST['title'] ?? '') ?>">
             <?php if (isset($errors['title'])) echo "<p class='error'>{$errors['title']}</p>"; ?>
         </div>
-        <div>
+        <div class="under">
             <label>Image</label>
-            <img id="preview" src="" alt="" style="display: none; max-width: 90vw; margin-top: 10px;">
-            <input type="file" name="image" id="image" accept="image/*">
+            <label for="image" class="image-picker">
+                <img id="preview" src="" alt="Tap to change image" style="display: none; max-width: 90vw; margin-top: 10px; cursor: pointer; border-radius: 2vh;">
+                <span id="pick-text" class="pick-btn">Choose image</span>
+            </label>
+            <input type="file" name="image" id="image" accept="image/*" hidden>
             <?php if (isset($errors['image'])) echo "<p class='error'>{$errors['image']}</p>"; ?>
-
         </div>
         <div>
-            <label>Caption</label>
-            <input type="text" name="caption" value="<?= htmlspecialchars($_POST['caption'] ?? '') ?>">
+            <label for="caption">Caption</label>
+            <textarea name="caption" id="caption" rows="1"><?= htmlspecialchars($_POST['caption'] ?? '') ?></textarea>
             <?php if (isset($errors['caption'])) echo "<p class='error'>{$errors['caption']}</p>"; ?>
         </div>
         <div>
-            <label for="location">Location</label>
+            <label for="location">Location (optional)</label>
             <input list="locations" id="location" name="location" placeholder="Type or select a location" value="<?= htmlspecialchars($_POST['location'] ?? '') ?>">
             <datalist id="locations">
                 <option value="Amsterdam">
@@ -116,7 +134,6 @@ if (isset($_POST['post'])) {
                 <option value="Flakkee">
                 <option value="Urk">
             </datalist>
-            <?php if (isset($errors['location'])) echo "<p class='error'>{$errors['location']}</p>"; ?>
         </div>
         <div>
             <label>Choose milestone</label>
@@ -157,10 +174,8 @@ if (isset($_POST['post'])) {
         <button type="submit" name="post">Post</button>
     </form>
 
-
-
 </main>
-
+</div>
 <script>
         const selectElement = document.getElementById('milestone');
         const previewImage = document.getElementById('preview-img');
@@ -174,6 +189,7 @@ if (isset($_POST['post'])) {
 <script>
     const imageInput = document.getElementById('image');
     const preview = document.getElementById('preview');
+    const pickText = document.getElementById('pick-text');
 
     imageInput.addEventListener('change', () => {
         const file = imageInput.files[0];
@@ -183,13 +199,25 @@ if (isset($_POST['post'])) {
             reader.onload = (e) => {
                 preview.src = e.target.result;
                 preview.style.display = 'block';
+                pickText.style.display = 'none';
             };
             reader.readAsDataURL(file);
         } else {
             preview.src = '';
             preview.style.display = 'none';
+            pickText.style.display = 'inline-block';
         }
     });
+
+    const caption = document.getElementById('caption');
+
+    function autoGrow() {
+        caption.style.height = 'auto';                    // reset so it can also shrink
+        caption.style.height = caption.scrollHeight + 'px';
+    }
+
+    caption.addEventListener('input', autoGrow);
+    autoGrow(); // sizes it correctly on page load (e.g. after a validation error re-fills it)
 </script>
 
 

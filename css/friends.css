@@ -1,0 +1,148 @@
+#friend-search {
+    width: 90%;
+    height: 40px;
+    margin: 10px 5% 15px 5%;
+    padding: 0 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #B8B0AA;
+    background-color: #FBF7F4;
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.upper-section-friends {
+    display: flex;
+    justify-content: space-around;
+}
+
+#search-results {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5vw 15px 5vw;
+}
+
+.search-result {
+    display: flex;
+    align-items: center;
+
+    height: 50px;
+    padding: 0 12px;
+
+    border: 1px solid #B8B0AA;
+    background-color: #FBF7F4;
+
+    cursor: pointer;
+}
+
+.search-result:hover {
+    background-color: #F1E8E2;
+}
+
+.search-input {
+    display: flex;
+}
+
+#search-button {
+    height: 42px;
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #4D78B5;
+    color: #FBF7F4;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#search-button:hover {
+    background-color: #3F6598;
+}
+
+#search-button:active {
+    transform: scale(0.97);
+}
+
+div.friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 5vw;
+}
+
+div.friend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 80px;
+    padding: 0 10px;
+
+    border: 1px solid #B8B0AA;
+    border-radius: 15px;
+    background-color: #FBF7F4;
+    box-sizing: border-box;
+}
+
+div.friend-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+div.friend-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    border: 2px solid #171717;
+    border-radius: 50%;
+
+    font-size: 20px;
+    color: #171717;
+}
+
+.friend-name {
+    color: #4D78B5;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.friend-actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    color: #171717;
+    font-size: 28px;
+}
+
+div.friend-actions span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 32px;
+
+    cursor: pointer;
+}
+
+.friend-actions img, .friend-icon img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    display: block;
+}
