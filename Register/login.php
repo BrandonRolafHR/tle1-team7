@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
                         'name' => $user['username'],
                         'email' => $user['email'],
                 ];
-                header('Location: /tle1-team7/home.php');
+                header('Location: /2026_2027/tle_t7/home.php/');
                 exit;
             } else {
                 $errors['login'] = 'Invalid username or password';

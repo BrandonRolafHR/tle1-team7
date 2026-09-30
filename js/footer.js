@@ -15,18 +15,18 @@ function init() {
     profileIcon = document.querySelector('.profile');
 
     homeIcon.addEventListener('click', () => {
-        window.location.href = '/home.php';
+        window.location.href = '/2026_2027/tle_t7/home.php/';
     });
     calendarIcon.addEventListener('click', () => {
-        window.location.href = '/calendar.php';
+        window.location.href = '/2026_2027/tle_t7/calendar.php/';
     });
     addIcon.addEventListener('click', () => {
-        window.location.href = '/create/create.php';
+        window.location.href = '/2026_2027/tle_t7/create/create.php';
     });
     friendIcon.addEventListener('click', () => {
-        window.location.href = '/friendslist.php';
+        window.location.href = '/2026_2027/tle_t7/friendslist.php/';
     });
     profileIcon.addEventListener('click', () => {
-        window.location.href = '/profile/profile.php';
+        window.location.href = '/2026_2027/tle_t7/profile/profile.php';
     });
 }

@@ -3,10 +3,10 @@ session_start(); // must be called before checking/using $_SESSION
 
 
 if (!isset($_SESSION['loggedInUser'])) {
-    header('Location: /Register/login.php');
+    header('Location: Register/login.php');
     exit;
 } else {
-    header('Location: /home.php');
+    header('Location: home.php/');
 }
 
 

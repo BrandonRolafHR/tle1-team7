@@ -3,7 +3,7 @@ session_start(); // must be called before checking/using $_SESSION
 
 
 if (!isset($_SESSION['loggedInUser'])) {
-    header('Location: /Register/login.php');
+    header('Location: /2026_2027/tle_t7/Register/login.php');
     exit;
 }
 ?>
@@ -43,12 +43,12 @@ if (!isset($_SESSION['loggedInUser'])) {
 
 <script>
     document.querySelector('.add-post').addEventListener('click', () => {
-        window.location.href = '/create/add-post.php';
+        window.location.href = '/2026_2027/tle_t7//create/add-post.php';
     });
     document.querySelector('.add-event').addEventListener('click', () => {
-        window.location.href = '/create/add-event.php';
+        window.location.href = '/2026_2027/tle_t7//create/add-event.php';
     });
     document.querySelector('.join-event').addEventListener('click', () => {
-        window.location.href = '../discover-event.php';
+        window.location.href = '/2026_2027/tle_t7/discover-event.php';
     });
 </script>

@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['loggedInUser'])) {
-    header('Location: /tle1-team7/Register/login.php');
+    header('Location: /2026_2027/tle_t7/Register/login.php');
     exit;
 }else {
     require_once "../included/connection.php";

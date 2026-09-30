@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $friendList = $friends->getFriends($userId);
 ?>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/friends.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/friends.css">
 
     <div class="upper-section-friends">
         <h1>Friends</h1>
