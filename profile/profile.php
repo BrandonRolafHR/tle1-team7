@@ -45,7 +45,7 @@ if (!isset($_SESSION['loggedInUser'])) {
         <h2>Milestones</h2>
         <div class="milestone-overzicht">
             <?php foreach ($milestones as $milestone): ?>
-                <div class="milestone-item" data-id="<?= $milestone['id'] ?>">
+                <div class="milestone-item" data-id="<?= $milestone['post_id'] ?>">
                     <img src="<?= $milestone['milestone'] ?>" alt="milestone image" class="<?= $milestone['size']?>-milestone">
                 </div>
             <?php endforeach; ?>

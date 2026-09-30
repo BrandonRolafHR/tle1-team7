@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     exit;
 }else {
     require_once "../included/connection.php";
-    $id = $_GET['id'];
+    $id = $_GET['post_id'];
     //print_r($id)
     
     $query = "SELECT * FROM posts WHERE id = " . $id;
