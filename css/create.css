@@ -140,9 +140,20 @@ button:active {
     color: white;
 }
 
+#preview {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-radius: 10px !important;
+}
+
 .image-picker {
-    max-width: 90vw;
-    cursor: pointer;
+    display: block;
+    width: 100%;
+    min-width: 0;
 }
 
 .under {
