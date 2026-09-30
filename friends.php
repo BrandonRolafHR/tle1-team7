@@ -1,8 +1,5 @@
 <?php
-
-
-session_start(); // must be called before checking/using $_SESSION
-
+session_start();
 
 if (!isset($_SESSION['loggedInUser'])) {
     header('Location: /Register/login.php');
