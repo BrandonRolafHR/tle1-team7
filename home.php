@@ -57,7 +57,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <?php } ?>
                             <h3><?= htmlspecialchars($post['username']) ?></h3>
                         </div>
-                        <p class="call-to-action">Bekijk post</p>
+                        <p class="call-to-action">Show post</p>
                     </button>
                 </div>
 
