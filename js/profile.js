@@ -8,7 +8,7 @@ function init() {
         item.addEventListener('click', () => {
             const id = item.dataset.id;
             console.log("Geklikte milestone ID:", id);
-            window.location.href = `/profile/milestone.php?id=${id}`;
+            window.location.href = `/profile/milestone.php?post_id=${id}`;
         });
     });
 }

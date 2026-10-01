@@ -104,7 +104,7 @@ mysqli_close($db);
 <main >
     <div class="websiteContainer">
         <header>
-     <h1>Calendar</h1>
+     <h1 class="white">Calendar</h1>
         </header>
 <div class="agenda__header">
             <a class="agenda__button" href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>">←</a>
@@ -148,11 +148,11 @@ mysqli_close($db);
         </div>
 
             <div class="events">
-            <h2>Alle events</h2>
+            <h2>All events</h2>
        <div class="events-table">
     <table>
         <?php if (empty($allEvents)): ?>
-            <tr><td colspan="4">Geen nieuwe events om te ontdekken.</td></tr>
+            <tr><td colspan="4">No new events to discover.</td></tr>
         <?php else: ?>
             <thead>
             <tr>

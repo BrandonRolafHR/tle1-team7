@@ -17,7 +17,7 @@
     --color-primary-blue: #54a0d8;
     --color-blue: #e9f6f6;
     --color-off-white: rgba(251, 247, 244, 0.7);
-    --color-accent: #5276B2;
+    --color-accent: #4a6fab;
 
     /* gradients */
     --gradient-main: linear-gradient(to bottom, rgba(178, 225, 255, 0.8) 0%, rgba(102, 182, 252, 0.65) 100%);
@@ -39,6 +39,11 @@
 
 body.dyslexia-mode {
     --font-body: 'opendyslexic', Arial, sans-serif;
+}
+
+
+.white{
+    color: #ffffff;
 }
 
 * {
@@ -76,7 +81,7 @@ h1, h2 {
     /*border-radius: 5vh 5vh 5vh 5vh;*/
 }
 
-.bg-image {
+/* .bg-image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,10 +90,10 @@ h1, h2 {
     margin: 15px;
     border-radius: 10px;
     font-size: 1.75rem;
-    background-image: url("../images/standard-header-bg.jpg");
+    background-image: url("../images/standard-header-bg2.png");
     background-size: cover;
     background-position: center;
-}
+} */
 
 footer {
     display: flex;
@@ -151,7 +156,7 @@ form {
     }
 
     .profile-header h1 {
-        color: var(--color-accent);
+        /*color: var(--color-accent);*/
     }
 
     .settings-link {
@@ -164,7 +169,11 @@ form {
         flex-direction: row;
         justify-content: flex-start;
         gap: 10px;
-        color: var(--color-accent);
+        color: #fff;
+    }
+
+    .settings-header h1 {
+        color: #fff;
     }
 
     .settings-header span {
@@ -173,7 +182,7 @@ form {
 
     .settings-header a {
         text-decoration: none;
-        color: var(--color-accent);
+        color: #fff;
     }
 
 
@@ -183,8 +192,8 @@ form {
     .user-info p,
     h2 {
         padding-top: 5px;
-        /*padding-left: 10%;*/
-        color: var(--color-accent);
+        padding-left: 10%;
+        /*color: #fff;*/
     }
 
     .user-info a {
@@ -193,7 +202,8 @@ form {
         padding-top: 10px;
         font-size: 1.25rem;
         text-decoration: none;
-        color: #fff;
+        color: rgb(82, 118, 178);
+         font-weight: bold;
     }
 
     .user-info div {
@@ -201,9 +211,9 @@ form {
         justify-content: center;
         width: 330px;
         padding: 5px 10px;
-        border: 2px solid var(--color-accent);
+        /* border: 2px solid var(--color-accent); */
         border-radius: 10px;
-        background: var(--color-accent);
+        background: var(--gradient-light);
     }
 
     #preview-img {
@@ -216,15 +226,24 @@ form {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.25rem;
-        background-image: url("../images/standard-header-bg.jpg");
+        font-size: 1.15rem;
+        background-image: url("../images/standard-header-bg-2.1.png");
+        
+        mask-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to left, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
+
+        -webkit-mask-composite: intersect;
+        mask-composite: intersect;
+        
         background-size: cover;
         background-position: center;
         width: auto;
         height: 200px;
         border-radius: 10px;
         margin: 15px;
-
     }
 
 
@@ -259,9 +278,10 @@ form {
         flex-direction: column;
         gap: 10px;
         padding: 10px;
-        background-color: #FBF7F4;
+        background: var(--gradient-light);
         border-radius: 10px;
         margin: 20px;
+        color: #fff;
     }
 
     .milestone-item {
@@ -279,7 +299,7 @@ form {
             display: flex;
             flex-direction: column;
             padding: 10px;
-            color: #5276B2;
+            color: #fff;
 
             input {
                 border-radius: 5px;
@@ -301,14 +321,20 @@ form {
             }
 
             button {
-                background: #5276B2;
-                color: #fff;
+                background: var(--gradient-light);
+                color: var(--color-accent);
+                font-weight: bold;
                 border: none;
                 padding: 10px 20px;
                 border-radius: 5px;
                 cursor: pointer;
                 margin-top: 10px;
                 font-size: 1rem;
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--color-accent);
             }
         }
     }
@@ -382,3 +408,86 @@ form {
         width: auto;
     }
 
+
+
+ /*mimin styling*/
+
+.miminImage {
+    width: 30vw;
+    height: auto;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+#skinImg {
+    z-index: 0;
+}
+
+#eyesImg {
+    z-index: 1;
+}
+
+#hairImg {
+    z-index: 2;
+}
+
+#clothingImg {
+    z-index: 3;
+}
+
+#accessoriesImg {
+    z-index: 4;
+}
+
+.miminOptions {
+    padding-top: 40vw;
+    padding-left: 20vw;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+    button {
+        background: var(--gradient-light);
+        color: var(--color-accent);
+        font-weight: bold;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--color-accent);;
+    }
+
+    .saveMimin {
+        padding: 5px 10px;
+    }
+}
+
+.skinOptions, .eyeOptions, .hairOptions, .clothingOptions, .accessoryOptions {
+    display: flex;
+    flex-direction: row;
+
+    p {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.miminButtons {
+    padding-bottom: 3vw;
+}
+.uploadMimin {
+    padding-bottom: 3vw;
+}
+
+.white{
+    color: #ffffff;
+}

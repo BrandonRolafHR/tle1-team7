@@ -16,6 +16,8 @@ $query = "SELECT posts.*, users.username, users.avatar_id
           JOIN users ON posts.user_id = users.id
           ORDER BY posts.id DESC";
 $result = mysqli_query($db, $query);
+
+
 $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
@@ -37,7 +39,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <body>
 <div class="websiteContainer">
     <header>
-        <h1>Home</h1>
+        <h1 class="white">Home</h1>
         <?php require_once "components/nav.php"; ?>
     </header>
 
@@ -57,7 +59,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <?php } ?>
                             <h3><?= htmlspecialchars($post['username']) ?></h3>
                         </div>
-                        <p class="call-to-action">Bekijk post</p>
+                        <p class="call-to-action">Show post</p>
                     </button>
                 </div>
 

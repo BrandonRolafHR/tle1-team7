@@ -63,23 +63,25 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/create.css">
 </head>
+
 <?php $activePage = 'add'; ?>
 <body>
-        <header class="event">
-            <a href="/index.php">
-                <span>↫</span>
-            </a>
-            <h1>Add new event</h1>
-        </header>        
-        <main>
+<div class="websiteContainer">
+    <main>
+
+<!--            <a href="/index.php">-->
+<!--                <span>↫</span>-->
+<!--            </a>-->
+            <h1 class="white">Add new event</h1>
+
 
             <form action="" method="POST">
                 <div class="event">
-                <label for="name">Event name</label>
-                <input type="text" name="name" id="name" >
+                    <label for="name">Event name</label>
+                    <input type="text" name="name" id="name" >
                 </div>
 
-                <div>
+                <div class="event">
                     <label for="visible">Open to</label>
                     <select id="visible" name= "visible">
                         <option value="private">private</option>
@@ -103,5 +105,6 @@ if (isset($_POST['submit'])) {
             </form>
         </main>
        <?php require_once "../components/footer.php"; ?>
+</div>
     </body>
 </html>

@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     exit;
 }else {
     require_once "../included/connection.php";
-    $id = $_GET['id'];
+    $id = $_GET['post_id'];
     //print_r($id)
     
     $query = "SELECT * FROM posts WHERE id = " . $id;
@@ -24,6 +24,7 @@ if (!isset($_SESSION['loggedInUser'])) {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <div class="websiteContainer">
     <header class="settings-header">
         <a href="profile.php">
             <span>↫</span>
@@ -43,5 +44,6 @@ if (!isset($_SESSION['loggedInUser'])) {
             </div>
         </section>
     </main>
+</div>
 </body>
 </html>
