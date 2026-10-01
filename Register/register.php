@@ -77,7 +77,7 @@ if (isset($_POST['register'])) {
                 'email' => $email,
         ];
 
-        header('Location: /tle1-team7/home.php');
+        header('Location: create-mimin.php');
         exit;
     }
 }
@@ -98,7 +98,7 @@ if (isset($_POST['register'])) {
 <div class="websiteContainer">
 <main>
     <section>
-        <h1>Create an Account</h1>
+        <h1>sign up</h1>
 
         <form method="post">
             <div>

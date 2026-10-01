@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
     $email     = trim($_POST['email'] ?? '');
     $bio       = trim($_POST['bio'] ?? '');
 
+    // Server-side validation
     $errors = [];
 
     if ($username === '') {
@@ -105,10 +106,16 @@ if (isset($_POST['submit'])) {
                 <label for="bio">bio:</label>
                 <textarea name="bio" id="bio" rows="4"><?= htmlentities($user['bio']) ?></textarea>
 
+                <button><a href="../Register/create-mimin.php">customise mimin</a></button>
+                
                 <button type="submit" name="submit">save</button>
             </form>
         </main>
     </div>
-</div>
+        
+    </div>
+
+
+
 </body>
 </html>

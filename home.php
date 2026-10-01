@@ -16,6 +16,8 @@ $query = "SELECT posts.*, users.username, users.avatar_id
           JOIN users ON posts.user_id = users.id
           ORDER BY posts.id DESC";
 $result = mysqli_query($db, $query);
+
+
 $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>

@@ -331,6 +331,11 @@ form {
                 margin-top: 10px;
                 font-size: 1rem;
             }
+
+            a {
+                text-decoration: none;
+                color: var(--color-accent);
+            }
         }
     }
 
@@ -402,6 +407,86 @@ form {
         height: 35px;
         width: auto;
     }
+
+
+
+ /*mimin styling*/
+
+.miminImage {
+    width: 30vw;
+    height: auto;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+#skinImg {
+    z-index: 0;
+}
+
+#eyesImg {
+    z-index: 1;
+}
+
+#hairImg {
+    z-index: 2;
+}
+
+#clothingImg {
+    z-index: 3;
+}
+
+#accessoriesImg {
+    z-index: 4;
+}
+
+.miminOptions {
+    padding-top: 40vw;
+    padding-left: 20vw;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+    button {
+        background: var(--gradient-light);
+        color: var(--color-accent);
+        font-weight: bold;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--color-accent);;
+    }
+
+    .saveMimin {
+        padding: 5px 10px;
+    }
+}
+
+.skinOptions, .eyeOptions, .hairOptions, .clothingOptions, .accessoryOptions {
+    display: flex;
+    flex-direction: row;
+
+    p {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.miminButtons {
+    padding-bottom: 3vw;
+}
+.uploadMimin {
+    padding-bottom: 3vw;
+}
 
 .white{
     color: #ffffff;
