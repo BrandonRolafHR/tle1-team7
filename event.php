@@ -55,12 +55,13 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
 
 </head>
 <body>
+    <div class="websiteContainer">
     <?php require_once "components/nav.php"; ?>
-    <header>
+    <header class="profile-header">
             <a href="/calendar.php">
                 <span>↫</span>
             </a>
-            <h1><?= htmlspecialchars($event['name']) ?></h1>
+            <h1 class="white"><?= htmlspecialchars($event['name']) ?></h1>
         </header>
     <main>
     <div class="info">
@@ -80,24 +81,25 @@ $participants = mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
         </form>
     <?php endif; ?>
     
-        <h2>Deelnemers</h2>
+        <h2 class="white">Participants</h2>
         <?php if (empty($participants)): ?>
-           <br> <p>Nog niemand.</p>
+           <br> <p>No one has joined the event.</p>
         <?php else: ?>
             <ul>
                 <?php foreach ($participants as $p): ?>
-                    <li><?= htmlspecialchars($p['username']) ?></li>
+                    <li class="white"><?= htmlspecialchars($p['username']) ?></li>
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
 
         <?php if ($isOwner): ?>
-           <br> <a class="button" href="event-delete.php?id=<?= (int)$event['id'] ?>">Delete</a>
-            <a class="button" href="event-edit.php?id=<?= (int)$event['id'] ?>">edit</a>
+           <br> <a class="event-button" href="event-delete.php?id=<?= (int)$event['id'] ?>">Delete</a>
+            <a class="event-button" href="event-edit.php?id=<?= (int)$event['id'] ?>">edit</a>
         <?php endif; ?>
     </main>
 
 
 <?php require_once "components/footer.php"; ?>
+</div>
 </body>
 </html>
