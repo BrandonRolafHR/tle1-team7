@@ -1,5 +1,5 @@
 
-header {
+/* header {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -7,15 +7,34 @@ header {
      a {
         text-decoration: none;
     }
-    span {
+    /* span {
         font-size: 2rem;
         color: var(--color-primary-blue);
+    } */
+ 
+.profile-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        color: #fff;
     }
-}
+    .profile-header h1 {
+        color: #fff;
+    }
+
+    .profile-header span {
+        font-size: 2rem;
+    }
+
+    .profile-header a {
+        text-decoration: none;
+        color: #fff;
+    }
 
 body{
     color: var(--color-primary-blue);
-    padding:20px;
+  
 }
 
 h1{
@@ -30,14 +49,6 @@ a{
     color: var(--color-primary-blue);
 }
 
-.info{
-    margin: 10px 10px 20px 10px;
-    padding: 10px;
-    border: 3px solid var(--color-primary-blue);
-    background: var(--color-off-white);
-    min-height: 150px;
-    font-size: 1.5rem;
-}
 
 .button {
     padding: 8px 12px;
@@ -57,4 +68,40 @@ a{
 .edit{
     padding: 5px;
     font-size: 1rem;
+}
+
+.info {
+    background: linear-gradient(to bottom, rgba(214, 249, 255, 0.8) 0%, rgba(158, 232, 250, 0.65) 100%);
+    border: none;
+    color: rgb(82, 118, 178);
+    padding: 15px 32px;
+    
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5vh 5vh 5vh 5vh;
+    
+    margin: 10px 10px 20px 10px;
+    width: 70%;
+    min-height: 150px;
+    font-size: 1.5rem;
+
+}
+
+.event-button{
+    
+    font-weight: bold;
+    background: linear-gradient(to bottom, rgba(178, 225, 255, 0.8) 0%, rgba(102, 182, 252, 0.65) 100%);
+    margin: 10px 0 0 0;
+    border-radius: 10px;
+    border-right: 2px solid rgba(128, 195, 255, 0.65);
+    border-left: 2px solid rgba(136, 197, 255, 0.65);
+    border-top: 1px solid rgba(125, 193, 255, 0.65);
+    padding: 8px 12px;
+    color: rgb(82, 118, 178);
+    margin: 0.5rem;
+}
+
+h2{
+    padding-left:5%;
 }
